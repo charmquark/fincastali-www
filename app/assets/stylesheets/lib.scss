@@ -190,12 +190,14 @@
     > .heading {
         @include bg_cover;
 
-        height: $dim-heading;
-
         position: relative;
 
+        &[data-bg] {
+            height: $dim-heading;
 
-        h1 { @include card_h1; }
+
+            h1 { @include card_h1; }
+        }
     }
 
 

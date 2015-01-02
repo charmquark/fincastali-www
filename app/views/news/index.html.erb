@@ -11,22 +11,42 @@
 </section>
 
 <section id="news-articles">
-    <article>
-        <div class="inner"></div>
-    </article>
+    <% @posts.each do |post| -%>
+        <% cache "tumblr/#{ post['timestamp'] }-#{ post['id'] }" do -%>
+            <article>
+                <div class="heading">
+                    <h1><%= post['title'] -%></h1>
+                    <div class="news-post-date"><%= post['date'].split[0] -%></div>
+                </div>
+                <div class="inner">
+                    <% unless post['body_abstract'].nil? -%>
+                        <%= raw post['body_abstract'] -%>
+                        <div class="news-read-more">
+                            <%= link_to post['post_url'] do -%>
+                                <%= image_tag 'social-media/tumblr.png' -%>
+                                Read the rest at Tumblr...
+                            <% end -%>
+                        </div>
+                    <% else -%>
+                        <%= raw post['body'] -%>
+                    <% end -%>
+                </div>
+            </article>
+        <% end -%>
+    <% end -%>
 </section>
 
 <section>
     <div id="news-tumblr-link" class="solo-link">
         <div class="inner">
-            <p class="big"><%= link_to image_tag('social-media/tumblr.png'), '#' -%> For older news and
-            updates, head over to <%= link_to 'Tumblr', '#' -%>.</p>
+            <p class="big"><%= link_to image_tag('social-media/tumblr.png'), '#' -%> For older news
+            and updates, head over to <%= link_to 'Tumblr', '#' -%>.</p>
         </div>
     </div>
 
     <div id="news-twitter-link" class="solo-link">
         <div class="inner">
-            <p class="big"><%= link_to image_tag('social-media/twitter.png'), '#' -%> You may also
+            <p class="big"><%= link_to image_tag('social-media/twitter.png'), '#' -%> You can also
             follow the Hearth on <%= link_to 'Twitter', '#' -%>.</p>
         </div>
     </div>
