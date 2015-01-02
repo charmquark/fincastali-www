@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp/*
 !/tmp/.keep
+
+# Ignore the secrets file
+/config/secrets.yml
