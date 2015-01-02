@@ -6,5 +6,5 @@ rackup DefaultRackup
 environment rails_env
 bind 'unix:///var/run/puma/fincastali-www.sock'
 
-require "#{ Dir.pwd }/config/puma/#{ rails_env }.rb"
+eval File.read("config/puma/#{ rails_env }.rb")
 
