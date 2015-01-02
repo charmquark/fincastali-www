@@ -48,3 +48,6 @@ end
 
 # Unicode awareness, so we can use fancy stuff like Æ
 gem 'unicode_utils'
+
+# Tumblr
+gem 'tumblr_client'

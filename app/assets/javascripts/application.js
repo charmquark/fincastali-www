@@ -16,7 +16,12 @@
 //= require_tree .
 
 (function() {
+    var $SCROLLY;
+
+
     $(function() {
+        $SCROLLY = $('html, body');
+
         // card headings
         $('.heading[data-bg]').each(function() {
             var elt = $(this);
@@ -31,5 +36,18 @@
             var clazz   = "hover-" + name;
             elt.hover(function() { contact.toggleClass(clazz); });
         });
+
+        // init "smooth" links
+        $('a[data-smooth]').each(function() {
+            var elt     = $(this);
+            elt.data('smooth', $(elt.attr('href')));
+            elt.click(smoothLinkHandler);
+        });
     });
+
+
+    function smoothLinkHandler(event) {
+        event.preventDefault();
+        $SCROLLY.animate({ scrollTop: $(event.target).data('smooth').position().top });
+    }
 })();
