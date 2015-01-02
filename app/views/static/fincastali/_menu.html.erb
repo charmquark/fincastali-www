@@ -1,10 +1,8 @@
-<% cache :heathenry_menu_essentials do -%>
-    <% category = HeathenryCollection.instance[:fincastali] %>
-    <aside id="sidebar-menu">
-        <div class="title"><%= category.display -%></div>
+<% category = HeathenryCollection.instance[:fincastali] %>
+<aside id="sidebar-menu">
+    <div class="title"><%= category.display -%></div>
 
-        <% category.articles.each do |article| -%>
-            <%= heathenry_menu_link_to  :fincastali, article.key, article.title -%>
-        <% end -%>
-    </aside>
-<% end -%>
+    <% category.articles.each do |article| -%>
+        <%= heathenry_menu_link_to  :fincastali, article.key, article.title -%>
+    <% end -%>
+</aside>
