@@ -102,7 +102,7 @@ h6 { font-size: $font-size-big; }
 
 
 blockquote {
-    border-left: 1px $black-divider solid;
+    border-left: 1px rgba($color-accent-dark, $alpha-black-secondary) solid;
 
     margin: $gap-small $gap-medium;
     padding: $gap-small;
@@ -126,6 +126,44 @@ h3 { font-size: $font-size-h3; }
 
 
 ul { padding-left: $gap-large; }
+
+
+.collapsable {
+    position: relative;
+
+
+    .collapsable-action {
+        @include absolute(corner_bottom_right, $gap-small);
+
+        color: $black-icon;
+        font-weight: bold;
+
+        font-size: $font-size-small;
+
+        display: block;
+
+
+        img {
+            cursor: pointer;
+            opacity: $alpha-black-icon;
+            vertical-align: middle;
+
+            margin-left: ($gap-small / 2);
+
+            display: inline-block;
+        }
+    }
+
+
+    .collapsable-collapsed {
+        padding-bottom: ($font-size-small * 2);
+    }
+
+
+    .collapsable-expanded {
+        display: none;
+    }
+}
 
 
 #sidebar-menu { @extend %sidebar_menu; }

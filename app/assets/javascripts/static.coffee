@@ -16,7 +16,7 @@ pageHome =
 
     init: ->
         if $('#site-page-home')?
-            this.initSlider()
+            pageHome.initSlider()
         null
 
 
@@ -46,6 +46,5 @@ pageHome =
         null
 
 
-$ ->
-    pageHome.init()
+$ pageHome.init
 

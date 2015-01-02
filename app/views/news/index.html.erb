@@ -12,42 +12,21 @@
 
 <section id="news-articles">
     <% @posts.each do |post| -%>
-        <% cache "tumblr/#{ post['timestamp'] }-#{ post['id'] }" do -%>
-            <article>
-                <div class="heading">
-                    <h1><%= post['title'] -%></h1>
-                    <div class="news-post-date"><%= post['date'].split[0] -%></div>
-                </div>
-                <div class="inner">
-                    <% unless post['body_abstract'].nil? -%>
-                        <%= raw post['body_abstract'] -%>
-                        <div class="news-read-more">
-                            <%= link_to post['post_url'] do -%>
-                                <%= image_tag 'social-media/tumblr.png' -%>
-                                Read the rest at Tumblr...
-                            <% end -%>
-                        </div>
-                    <% else -%>
-                        <%= raw post['body'] -%>
-                    <% end -%>
-                </div>
-            </article>
-        <% end -%>
+        <%= render 'index_post', post: post -%>
     <% end -%>
 </section>
 
 <section>
-    <div id="news-tumblr-link" class="solo-link">
+    <div id="news-tumblr-link" class="duo-link">
         <div class="inner">
-            <p class="big"><%= link_to image_tag('social-media/tumblr.png'), '#' -%> For older news
-            and updates, head over to <%= link_to 'Tumblr', '#' -%>.</p>
-        </div>
-    </div>
-
-    <div id="news-twitter-link" class="solo-link">
-        <div class="inner">
-            <p class="big"><%= link_to image_tag('social-media/twitter.png'), '#' -%> You can also
-            follow the Hearth on <%= link_to 'Twitter', '#' -%>.</p>
+            <p class="big">
+                <%= link_to image_tag('social-media/tumblr.png'), SocialMedia::TUMBLR_URL -%>
+                See more updates on <%= link_to 'Tumblr', SocialMedia::TUMBLR_URL -%>
+            </p>
+            <p class="big">
+                Or follow us on <%= link_to 'Twitter', SocialMedia::TWITTER_URL -%>
+                <%= link_to image_tag('social-media/twitter.png'), SocialMedia::TWITTER_URL -%>
+            </p>
         </div>
     </div>
 </section>

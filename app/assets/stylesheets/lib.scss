@@ -45,6 +45,15 @@
 }
 
 
+@mixin clearfix {
+    &:after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+}
+
+
 @mixin corner_top_left      ($dist: 0px) {  top:    $dist;  left:   $dist; }
 @mixin corner_top_right     ($dist: 0px) {  top:    $dist;  right:  $dist; }
 @mixin corner_bottom_left   ($dist: 0px) {  bottom: $dist;  left:   $dist; }
@@ -176,6 +185,7 @@
 
     &:last-child { margin-bottom: 0px; }
 
+    &.duo-link,
     &.solo-link {
         img {
             vertical-align: middle;
@@ -183,6 +193,41 @@
             margin-right: $gap-small;
 
             display: inline-block;
+        }
+    }
+
+    &.duo-link {
+        @include clearfix;
+
+        position: relative;
+
+        &:before {
+            border-left: 1px $black-divider solid;
+
+            width: 0px;
+
+            position: absolute;
+            top: $gap-small;
+            bottom: $gap-small;
+            left: calc(50% - 1px);
+
+            content: "";
+        }
+
+
+        p {
+            max-width: 49%;
+
+            display: block;
+
+            &:first-child { float: left; }
+
+            &:last-child {
+                float: right;
+
+
+                img { margin: 0px 0px 0px $gap-small; }
+            }
         }
     }
 
