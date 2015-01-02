@@ -35,7 +35,7 @@ namespace :app do
     desc 'stop application'
     task :stop do
         if puma_running?
-            sh "kill -SIGTERM `cat #{ PUMA_PID_FILE }`"
+            sh "kill -TERM `cat #{ PUMA_PID_FILE }`"
         end
     end
 
