@@ -1,0 +1,22 @@
+---
+essentials:
+    display: Essentials
+    articles:
+        glossary: Glossary
+        rites: Symbel & Blót
+        runes: The Runes
+        vaettir: Vættir
+        gods: Gods & Goddesses
+
+fincastali:
+    display: Fincastali
+    articles:
+        organization: Organization
+        blotar: Annual Blótar
+
+extra:
+    display: Extra
+    articles:
+        cosmos: Cosmology & Cosmogeny
+        anthropogeny: Anthropogeny
+        soul: Soul Complex

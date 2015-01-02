@@ -1,0 +1,20 @@
+<% cache 'site-header' do -%>
+    <header id="site-header">
+        <div class="inner">
+            <div id="site-branding">
+                <%= image_tag 'branding-flag.jpg' %>
+                <span>Fincastali Hearth</span>
+            </div>
+
+            <nav id="site-nav">
+                <ul>
+                    <li><%= site_nav_link_to :home      , 'Home'        , root_path         %></li>
+                    <li><%= site_nav_link_to :news      , 'News'        , news_path         %></li>
+                    <li><%= site_nav_link_to :lists     , 'Lists'       , '#'               %></li>
+                    <li><%= site_nav_link_to :events    , 'Events'      , '#'               %></li>
+                    <li><%= site_nav_link_to :heathenry , 'Heathenry'   , heathenry_path    %></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<% end -%>

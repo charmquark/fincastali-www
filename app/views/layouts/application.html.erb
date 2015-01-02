@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= @title.reverse.join ' - ' %></title>
+    <%= stylesheet_link_tag     'normalize'     , media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag     'application'   , media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag  'application', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
+</head>
+
+<body id="<%= @body_id %>">
+    <%= render 'shared/header' -%>
+    <main id="site-main">
+        <% if @include_nav_to_top -%>
+            <div id="site-nav-to-top"><a href="#site-main"><%= image_tag 'nav-to-top.png' -%></a></div>
+        <% end -%>
+        <div class="inner">
+            <%= yield -%>
+        </div>
+    </main>
+    <%= render 'shared/footer' -%>
+</body>
+
+</html>

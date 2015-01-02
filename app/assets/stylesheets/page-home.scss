@@ -1,0 +1,34 @@
+
+#site-page-home {
+    #home-slider {
+        height: $dim-slider-heading;
+
+        position: relative;
+
+        overflow: hidden;
+        z-index: 0;
+
+
+        h1 {
+            @include card_h1;
+
+            z-index: 1;
+        }
+
+
+        img {
+            width: $dim-content;
+            height: $dim-slider-heading;
+
+            position: absolute;
+            top: 0px;
+            left: 100%;
+
+            z-index: -1;
+        }
+    }
+
+
+    #site-main { @include inner_section_cards; }
+}
+

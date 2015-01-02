@@ -1,0 +1,32 @@
+<section id="heathenry-intro">
+    <div class="heading" data-bg="<%= image_path 'card-heading/6.jpg' -%>">
+        <h1>Heathenry Information</h1>
+    </div>
+    <div class="inner">
+        <p class="big">Explore Heathen culture and spirituality through this collection of articles
+        presented by the folk of Fincastali Hearth. Learn about some of the unusual words we use and
+        why we use them, our cosmology and theology, our worldview, and more.</p>
+    </div>
+</section>
+
+<% cache :heathenry_index_menu do -%>
+    <section id="heathenry-index-menu">
+        <div class="inner">
+            <% HeathenryCollection.instance.categories.each do |category| -%>
+                <div class="column">
+                    <h2><%= category.display -%></h2>
+                    <% category.articles.each do |article| -%>
+                        <%= link_to article.title, heathenry_path(category.key, article.key) -%>
+                    <% end -%>
+                </div>
+            <% end -%>
+        </div>
+    </section>
+<% end -%>
+
+<section id="solo-link-youtube" class="solo-link">
+    <div class="inner">
+        <p class="big"><%= link_to image_tag('social-media/youtube.png'), 'https://www.youtube.com/fincastali' -%> See for yourself at our
+        <%= link_to 'YouTube', 'https://www.youtube.com/fincastali' -%> channel.</p>
+    </div>
+</section>

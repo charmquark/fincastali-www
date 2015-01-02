@@ -1,0 +1,10 @@
+<% cache :heathenry_menu_essentials do -%>
+    <% category = HeathenryCollection.instance[:extra] %>
+    <aside id="sidebar-menu">
+        <div class="title"><%= category.display -%></div>
+
+        <% category.articles.each do |article| -%>
+            <%= heathenry_menu_link_to  :extra, article.key, article.title -%>
+        <% end -%>
+    </aside>
+<% end -%>

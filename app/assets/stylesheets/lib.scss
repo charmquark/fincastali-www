@@ -1,0 +1,264 @@
+
+@mixin absolute($pos, $dist: 0px) {
+    @include position_at(absolute, $pos, $dist);
+}
+
+
+@mixin bg_cover {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@mixin bgfg($bg, $fg) {
+    background: $bg;
+    color: $fg;
+}
+
+@mixin bgfg_accent          { @include bgfg($color-accent       , $black-text   ); }
+@mixin bgfg_accent_dark     { @include bgfg($color-accent_dark  , $black-text   ); }
+@mixin bgfg_accent_lite     { @include bgfg($color-accent_lite  , $black-text   ); }
+@mixin bgfg_primary         { @include bgfg($color-primary      , $white-text   ); }
+@mixin bgfg_primary_dark    { @include bgfg($color-primary_dark , $white-text   ); }
+@mixin bgfg_primary_lite    { @include bgfg($color-primary_lite , $black-text   ); }
+@mixin bgfg_facebook        { @include bgfg($color-facebook     , $white-text   ); }
+@mixin bgfg_twitter         { @include bgfg($color-twitter      , $black-text   ); }
+@mixin bgfg_tumblr          { @include bgfg($color-tumblr       , $white-text   ); }
+@mixin bgfg_youtube         { @include bgfg($color-youtube      , $white-text   ); }
+
+@mixin bgfg_whiteblack {
+    background: $white;
+    color: $black-text;
+}
+
+
+@mixin card_h1 {
+    @include absolute(edge_bottom);
+
+    color: $white-text;
+    text-shadow: 0px 0px 4px $black-text;
+
+    line-height: 1;
+    margin: 0px;
+    padding: $gap-small;
+}
+
+
+@mixin corner_top_left      ($dist: 0px) {  top:    $dist;  left:   $dist; }
+@mixin corner_top_right     ($dist: 0px) {  top:    $dist;  right:  $dist; }
+@mixin corner_bottom_left   ($dist: 0px) {  bottom: $dist;  left:   $dist; }
+@mixin corner_bottom_right  ($dist: 0px) {  bottom: $dist;  right:  $dist; }
+
+
+@mixin _decor_base($side, $incl-height: false) {
+    content: "";
+
+    position: absolute;
+    #{$side}: $offset-decor;
+
+    display: block;
+
+    @if $incl-height { height: ($dim-content / 2); }
+}
+
+@mixin _decor_border($color, $col-side, $trans-side) {
+    border-#{$col-side}:    $dim-decor  $color      solid;
+    border-#{$trans-side}:  $dim-decor  transparent solid;
+}
+
+@mixin decor($side, $color) {
+    border-#{$side}: $dim-decor $color solid;
+
+    @if $side == top {
+        &:before {
+            @include _decor_base($side);
+            @include _decor_border($color, bottom, right);
+
+            left: 0px;
+            right: 50%;
+        }
+    }
+    @else if $side == bottom {
+        &:after {
+            @include _decor_base($side);
+            @include _decor_border($color, top, left);
+
+            left: 50%;
+            right: 0px;
+        }
+    }
+    @else if $side == left {
+        &:before {
+            @include _decor_base($side, true);
+            @include _decor_border($color, right, bottom);
+
+            top: 0px;
+        }
+    }
+    @else if $side == right {
+        &:after {
+            @include _decor_base($side, true);
+            @include _decor_border($color, left, bottom);
+
+            top: 0px;
+        }
+    }
+}
+
+
+@mixin divider_border($side, $color) {
+    border-#{$side}: 1px $color solid;
+}
+
+
+@mixin edge_top     ($dist: 0px) { top:     $dist;  left:   $dist;  right:  $dist; }
+@mixin edge_bottom  ($dist: 0px) { bottom:  $dist;  left:   $dist;  right:  $dist; }
+@mixin edge_left    ($dist: 0px) { top:     $dist;  bottom: $dist;  left:   $dist; }
+@mixin edge_right   ($dist: 0px) { bottom:  $dist;  bottom: $dist;  right:  $dist; }
+
+
+@mixin fixed($pos, $dist: 0px) {
+    @include position_at(fixed, $pos, $dist);
+}
+
+
+@mixin flex_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+@mixin inner_section_cards {
+    > .inner > section { @extend %card; }
+}
+
+
+@mixin list_horizontal {
+    list-style-type: none;
+
+    margin: 0px;
+    padding: 0px;
+
+
+    > li { display: inline-block; }
+}
+
+
+@mixin position_at($mode, $pos, $dist) {
+    position: $mode;
+
+    @if         $pos == corner_top_left     { @include corner_top_left      ($dist); }
+    @else if    $pos == corner_top_right    { @include corner_top_right     ($dist); }
+    @else if    $pos == corner_bottom_left  { @include corner_bottom_left   ($dist); }
+    @else if    $pos == corner_bottom_right { @include corner_bottom_right  ($dist); }
+    @else if    $pos == edge_top            { @include edge_top             ($dist); }
+    @else if    $pos == edge_bottom         { @include edge_bottom          ($dist); }
+    @else if    $pos == edge_left           { @include edge_left            ($dist); }
+    @else if    $pos == edge_right          { @include edge_right           ($dist); }
+}
+
+
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+
+%card {
+    @include bgfg_whiteblack;
+
+    box-shadow: 0px 2px 4px $black-secondary;
+
+    margin-bottom: $margin-card;
+
+    &:last-child { margin-bottom: 0px; }
+
+    &.solo-link {
+        img {
+            vertical-align: middle;
+
+            margin-right: $gap-small;
+
+            display: inline-block;
+        }
+    }
+
+
+    > .heading {
+        @include bg_cover;
+
+        height: $dim-heading;
+
+        position: relative;
+
+
+        h1 { @include card_h1; }
+    }
+
+
+    > .inner {
+        border-top: $gap-small $color-primary-lite solid;
+
+        padding: $gap-small;
+
+        &:first-child { border: none; }
+    }
+}
+
+
+%content {
+    width: 100%;
+    max-width: $dim-content;
+
+    margin: 0px auto;
+
+    position: relative;
+}
+
+
+%sidebar {
+    @include absolute(edge_left);
+    @include decor(right, $color-accent-lite);
+    @include bgfg_accent;
+
+    width: ($dim-sidebar - $offset-sidebar);
+
+
+    & ~ %card { margin-left: $dim-sidebar; }
+
+
+    .title {
+        font-family: $font-serif;
+
+        line-height: 1;
+        margin-bottom: $gap-medium;
+    }
+}
+
+%sidebar_menu {
+    @extend %sidebar;
+
+    text-align: right;
+
+    padding: $gap-large 0px;
+
+
+    a,
+    .title { padding-right: $gap-small; }
+
+
+    a {
+        color: $black-text;
+
+        font-size: $font-size-small;
+        line-height: 3;
+
+        display: block;
+
+        &.active { background: $color-accent-lite; }
+    }
+}
+

@@ -1,0 +1,33 @@
+<% cache 'site-footer' do -%>
+    <footer id="site-footer">
+        <div id="site-contact">
+            <div id="site-contact-social-media">
+                <%= link_to(
+                    image_tag('social-media/facebook.png'),
+                    'https://www.facebook.com/pages/Fincastali-Hearth/144021969003053',
+                    'data-hover' => 'facebook'
+                ) -%>
+                <%= link_to(
+                    image_tag('social-media/tumblr.png'),
+                    '#',
+                    'data-hover' => 'tumblr'
+                ) -%>
+                <%= link_to(
+                    image_tag('social-media/twitter.png'),
+                    '#',
+                    'data-hover' => 'twitter'
+                ) -%>
+                <%= link_to(
+                    image_tag('social-media/youtube.png'),
+                    'https://www.youtube.com/fincastali',
+                    'data-hover' => 'youtube'
+                ) -%>
+            </div>
+            <div id="site-contact-direct">
+                <div>fincastali@gmail.com</div>
+                <div>(270) 313-8873</div>
+            </div>
+        </div>
+        <div id="site-copyright">Copyright &copy; 2014 Fincastali Hearth. All rights reserved.</div>
+    </footer>
+<% end -%>

@@ -1,0 +1,11 @@
+
+#site-page-news {
+    article,
+    #news-intro,
+    #news-tumblr-link,
+    #news-twitter-link { @extend %card; }
+
+
+    #news-articles { margin: $margin-card 0px; }
+}
+

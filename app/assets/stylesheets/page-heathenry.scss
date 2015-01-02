@@ -1,0 +1,62 @@
+
+#site-page-heathenry,
+#site-page-heathenry-article {
+    #site-main { @include inner_section_cards; }
+}
+
+
+#site-page-heathenry {
+    #heathenry-index-menu {
+        .column {
+            text-align: center;
+
+            flex-grow: 1;
+
+
+            a {
+                line-height: 1.5;
+
+                display: block;
+            }
+
+
+            h2 {
+                color: $black-text;
+
+                margin: 0px 0px $gap-medium 0px;
+            }
+        }
+
+
+        > .inner { @include flex_row; }
+    }
+}
+
+
+#site-page-heathenry-article {
+    .glossary-nav {
+        @include bgfg_primary_dark;
+
+        text-align: center;
+
+        padding-top: $gap-small;
+
+        a {
+            font-weight: bold;
+            text-align: center;
+
+            width: 25px;
+
+            line-height: $font-size-h2;
+
+            display: inline-block;
+
+            &.current { @include bgfg_primary_lite; }
+        }
+    }
+
+
+    .glossary-section {
+        dt { font-size: $font-size-h2; }
+    }
+}
