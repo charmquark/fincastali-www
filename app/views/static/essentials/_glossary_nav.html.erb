@@ -1,8 +1,6 @@
-<% cache 'heathenry-glossary-nav' do -%>
-    <div class="glossary-nav">
-        <% @current_letter = current_letter -%>
-        <% ['A', 'B', 'E', 'H', 'J', 'L', 'M', 'N', 'T', 'V', 'Y'].each do |letter| -%>
-            <%= glossary_nav_link_to letter -%>
-        <% end -%>
-    </div>
-<% end -%>
+<div class="glossary-nav">
+    <% @current_letter = current_letter -%>
+    <% ['A', 'B', 'E', 'H', 'J', 'L', 'M', 'N', 'T', 'V', 'Y'].each do |letter| -%>
+        <%= glossary_nav_link_to letter -%>
+    <% end -%>
+</div>
