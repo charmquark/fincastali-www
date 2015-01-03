@@ -1,5 +1,10 @@
 
 class StaticController < ApplicationController
+    before_action -> do
+        @scripts << 'static'
+    end
+
+
     def home
         @active_site_nav  = :home
         @body_id          = 'site-page-home'

@@ -5,7 +5,15 @@
         </div>
         <div class="inner">
             <p class="big">Check here from time to time for announcements, new articles from members,
-            and other updates. You may also follow us at Tumblr and/or Twitter.</p>
+            and other updates. You may also follow us at
+            <%= link_to 'Tumblr', SocialMedia::TUMBLR_URL -%> and/or 
+            <%= link_to 'Twitter', SocialMedia::TWITTER_URL -%>. Currently showing these posts:</p>
+
+            <ul>
+                <% @posts.each do |post| -%>
+                    <li><%= smooth_link_to post['title'], "#article-#{ post['id'] }" -%></li>
+                <% end -%>
+            </ul>
         </div>
     </div>
 </section>

@@ -1,17 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 
-pageNews =
-    init: ->
-        $('.collapsable').each ->
+$ ->
+    # init collapsables
+    $('.collapsable').each ->
             container   = $ this
             collapsed   = $ '.collapsable-collapsed', container
             expanded    = $ '.collapsable-expanded', container
             expAction   = $ '.collapsable-action', collapsed
             colAction   = $ '.collapsable-action', expanded
 
-            handler = ->
+            toggle = ->
                 collapsed.slideToggle()
                 expanded.slideToggle()
                 $('html, body').animate({ scrollTop: container.position().top });
@@ -19,14 +16,13 @@ pageNews =
             expAction.click ->
                 expAction.hide()
                 colAction.show()
-                handler()
+                toggle()
                 ga 'send', 'event', 'expand', 'click'
 
             colAction.click ->
                 expAction.show()
                 colAction.hide()
-                handler()
-        null
+                toggle()
 
-$ pageNews.init
+    null
 

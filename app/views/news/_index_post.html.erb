@@ -1,5 +1,5 @@
 <% cache "tumblr/#{ post['timestamp'] }-#{ post['id'] }" do -%>
-    <article>
+    <article id="article-<%= post['id'] -%>">
         <div class="heading">
             <h1><%= post['title'] -%></h1>
             <div class="news-post-date"><%= post['date'].split[0] -%></div>

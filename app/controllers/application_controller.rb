@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
 
-    before_action -> {
+    before_action -> do
         @active_site_nav    = ''
         @body_id            = ''
         @include_nav_to_top = false
+        @scripts            = []
         @title              = ['Fincastali Hearth']
-    }
+    end
 end

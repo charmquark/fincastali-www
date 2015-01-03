@@ -1,50 +1,33 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 
-pageHome =
-    SLIDER_STATES:
-        HIDE: { left:   -1000 }
-        PREP: { left:    1000 }
-        SHOW: { left:       0 }
+# home page stuff
+$ ->
+    return unless $('#site-page-home')?
 
-    SLIDER_TIMEOUT: 4000
+    $SLIDER_HIDE    = { left:   -1000 }
+    $SLIDER_PREP    = { left:    1000 }
+    $SLIDER_SHOW    = { left:       0 }
+    $SLIDER_TIMEOUT = 4000
 
 
-    sliderIndex: 0
+    # init slider
+    slider          = $ '#home-slider'
+    sliderFrames    = $ 'img', slider
+    sliderIndex     = 0
 
+    sliderCurrent   = $ sliderFrames[0]
 
-    init: ->
-        if $('#site-page-home')?
-            pageHome.initSlider()
+    advanceSlider = ->
+        $(sliderFrames[sliderIndex]).animate $SLIDER_HIDE
+        if ++sliderIndex >= sliderFrames.size()
+            sliderIndex = 0
+        $ sliderFrames[sliderIndex]
+            .css        $SLIDER_PREP
+            .animate    $SLIDER_SHOW
+        setTimeout advanceSlider, $SLIDER_TIMEOUT
         null
 
+    sliderCurrent.css $SLIDER_SHOW
+    setTimeout advanceSlider, $SLIDER_TIMEOUT
 
-    advanceSlider: ->
-        idx     = pageHome.sliderIndex
-        frames  = pageHome.sliderFrames
-
-        $ frames[idx]
-            .animate pageHome.SLIDER_STATES.HIDE
-        if (++idx >= frames.size())
-            idx = 0
-        $ frames[idx]
-            .css pageHome.SLIDER_STATES.PREP
-            .animate pageHome.SLIDER_STATES.SHOW
-        pageHome.sliderIndex = idx
-        setTimeout pageHome.advanceSlider, pageHome.SLIDER_TIMEOUT
-        null
-
-
-    initSlider: ->
-        slider  = $ '#home-slider'
-        frames  = @sliderFrames = $ 'img', slider
-        current                 = $ frames[0]
-
-        current.css @SLIDER_STATES.SHOW
-        setTimeout this.advanceSlider, @SLIDER_TIMEOUT
-        null
-
-
-$ pageHome.init
+    null
 
