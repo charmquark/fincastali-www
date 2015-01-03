@@ -1,7 +1,7 @@
 module StaticHelper
     def glossary_nav_link_to(letter)
         clazz = (@current_letter == letter ? 'current' : '')
-        link_to letter, "#glossary-section-#{ letter }", class: clazz
+        smooth_link_to letter, "#glossary-section-#{ letter }", class: clazz
     end
 
 

@@ -25,7 +25,7 @@
     <%= render 'shared/header' -%>
     <main id="site-main">
         <% if @include_nav_to_top -%>
-            <div id="site-nav-to-top"><a href="#site-main"><%= image_tag 'nav-to-top.png' -%></a></div>
+            <div id="site-nav-to-top"><%= smooth_link_to image_tag('nav-to-top.png'), '#site-main' -%></div>
         <% end -%>
         <div class="inner">
             <%= yield -%>
