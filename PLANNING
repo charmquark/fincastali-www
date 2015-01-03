@@ -1,0 +1,42 @@
+List
+    name            string                              (list name; mainly for admin site)
+    description     string                              (brief description of the category for use as a reminder in admin site; not what appears on page)
+    tag             string          unique              (used internally for marrying a list to its page) (use plain record id instead? secure? practical?)
+
+    has-many        ListCategory    as :categories
+
+
+ListCategory
+    name            string                              (category name; what appears in the page menu)
+    description     string                              (brief description of the category for use as a reminder in admin site) (add these to the actual list page as well?)
+
+    belongs-to      List            as :list
+    has-many        Listing         as :listings
+
+
+Listing                                                 (a listing simply joins an entity to a category)
+    belongs-to      ListCategory    as :category
+    belongs-to      ListEntity      as :entity
+
+
+ListEntity
+    name            string                              (name of entity; eg, 'Beloved Viking Vinyl' or 'Bob Smith')
+    description     string                              (short description; appears on page, in listing card)
+    accepts_custom  boolean                             (whether the entity accepts custom orders)
+    image           string                              (decorative image to be used behind listings on page) (rather than string, store image directly in db?)
+    urls            string                              (web address(es) of shopfront or whatever) (serialized array? yml? delimited?)
+
+    has-many        Listing         as: listings        (one entity may have multiple listings)
+
+
+
+BRAINSTORM:
+
+ * possibly associate images to listings, rather than entities?  then one entity might have a different
+    decorative image on their card, depending on which category is being viewed.  could curate images
+    to be category-relavent.
+
+ * admin site should present a (semi-)live preview of listing cards
+
+ * allow markup in descriptions? (<em></em> for example) is this really needed?
+
