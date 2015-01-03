@@ -20,6 +20,7 @@ pageNews =
                 expAction.hide()
                 colAction.show()
                 handler()
+                ga 'send', 'event', 'expand', 'click'
 
             colAction.click ->
                 expAction.show()
