@@ -11,6 +11,8 @@
         <%= javascript_include_tag script %>
     <% end -%>
 
+    <%= yield :head_inject %>
+
     <%= csrf_meta_tags %>
 
     <script>

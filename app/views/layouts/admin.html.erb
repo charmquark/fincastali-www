@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= @title.reverse.join ' - ' %></title>
+    <%= stylesheet_link_tag     'normalize'         , media: 'all' %>
+    <%= stylesheet_link_tag     'admin/application' , media: 'all' %>
+
+    <%= javascript_include_tag  'admin/application' %>
+    <% @scripts.each do |script| -%>
+        <%= javascript_include_tag script %>
+    <% end -%>
+
+    <%= yield :head_inject %>
+
+    <%= csrf_meta_tags %>
+</head>
+
+<body id="<%= @body_id %>">
+    <header id="site-header">
+        <div id="site-branding">
+            <%= image_tag 'branding-flag.jpg' -%>
+            <span>Fincastali Hearth Administration</span>
+        </div>
+    </header>
+
+    <main id="site-main">
+        <%= yield -%>
+    </main>
+
+    <footer id="site-footer">
+    </footer>
+</body>
+
+</html>

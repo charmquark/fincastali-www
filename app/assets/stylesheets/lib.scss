@@ -156,7 +156,7 @@
 }
 
 
-@mixin position_at($mode, $pos, $dist) {
+@mixin position_at($mode, $pos, $dist: 0px) {
     position: $mode;
 
     @if         $pos == corner_top_left     { @include corner_top_left      ($dist); }

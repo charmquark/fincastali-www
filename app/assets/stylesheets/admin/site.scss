@@ -1,0 +1,214 @@
+
+/*
+ * Common (site-wide) styles.
+ */
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+body {
+    @include bgfg_whiteblack;
+
+    font-family: $font-sans;
+
+    font-size: $font-size-base;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    color: $color-accent-dark;
+
+    text-decoration: none;
+
+    &:hover { color: $color-accent; }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-serif;
+
+    line-height: 1;
+}
+
+
+h4,
+h5,
+h6 { font-size: $font-size-big; }
+
+
+h1 { font-size: $font-size-h1; }
+
+
+h2 { font-size: $font-size-h2; }
+
+
+h3 { font-size: $font-size-h3; }
+
+
+input {
+    @include bgfg_whiteblack;
+
+    border: 1px $black-secondary solid;
+
+    padding: ($gap-small / 2);
+
+    &[type=submit] {
+        @include bgfg_primary;
+
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+
+p {
+    margin: 0px 0px $gap-small 0px;
+
+    &:last-child { margin: 0px; }
+
+    &.big {
+        text-align: justify;
+
+        font-size: $font-size-big;
+    }
+}
+
+
+#site-branding {
+    font-family: $font-serif;
+    vertical-align: middle;
+
+    font-size: $font-size-h1;
+    line-height: ($font-size-h1 + $gap-small);
+
+
+    img {
+        height: ($font-size-h1 + $gap-small);
+
+        margin-right: $gap-small;
+
+        display: block;
+        float: left;
+    }
+}
+
+
+#site-header,
+#site-footer { @include bgfg_primary_lite; }
+
+
+#site-footer {
+    border-top: $gap-small $color-primary solid;
+    text-align: right;
+
+    padding: $gap-medium $gap-medium ($gap-huge * 2) $gap-medium;
+
+
+    a {
+        @include bgfg_accent;
+
+        box-shadow: 0px 2px 2px $black-secondary;
+
+        margin-left: $gap-small;
+        padding: $gap-small $gap-medium;
+
+        display: inline-block;
+        transition: box-shadow 0.5s;
+
+        &:hover { box-shadow: 0px 2px 4px $black-text; }
+    }
+}
+
+
+#site-header {
+    border-bottom: $gap-small $color-primary solid;
+
+    padding: $gap-small;
+}
+
+
+#site-login {
+    @include bgfg_primary_lite;
+
+    border: $gap-small $color-primary-dark solid;
+
+    max-width: 50%;
+
+    margin: $gap-huge auto;
+    padding: $gap-huge;
+
+    position: relative;
+
+    &:before {
+        @include absolute(corner_top_right, $gap-small);
+        @include square($dim-icon);
+
+        background: url('/assets/admin/icons/warning-black.png');
+        opacity: $alpha-black-icon;
+
+        content: "";
+    }
+
+
+    input { margin-right: $gap-small; }
+}
+
+
+#site-main {
+    @include clearfix;
+
+
+    > section {
+        padding: $gap-small 0px $gap-large 0px;
+
+        float: left;
+
+        &.menu {
+            @include bgfg_primary_dark;
+
+            border-right: $gap-small $color-primary solid;
+            text-align: right;
+
+
+            a {
+                color: $white-text;
+                margin: 0px;
+                padding: $gap-small;
+
+                display: block;
+
+                &:hover { @include bgfg_primary; }
+            }
+
+
+            h2 {
+                border-top: 1px $white-divider solid;
+
+                font-size: $font-size-h3;
+                margin: $gap-medium $gap-small;
+                padding: $gap-medium 0px 0px 0px;
+
+                &:first-child {
+                    border: none;
+
+                    padding-top: 0px;
+                }
+            }
+        }
+    }
+}
+
