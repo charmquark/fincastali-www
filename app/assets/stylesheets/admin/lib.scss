@@ -47,6 +47,14 @@
 @mixin edge_right   ($dist: 0px) { bottom:  $dist;  bottom: $dist;  right:  $dist; }
 
 
+@mixin flex_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
 @mixin position_at($mode, $pos, $dist: 0px) {
     position: $mode;
 

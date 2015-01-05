@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list_category_id: 
+  list_entity_id: 
+  listing_image_id: 
+
+two:
+  list_category_id: 
+  list_entity_id: 
+  listing_image_id: 

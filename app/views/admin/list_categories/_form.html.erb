@@ -1,0 +1,21 @@
+<%= form.hidden_field :list_id %>
+<div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: 'Display name' %>
+    <div class="errors">
+        <% unless @list.errors[:name].empty? %>
+            <%= @list.errors[:name][0] %>
+        <% end %>
+        &nbsp;
+    </div>
+</div>
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, placeholder: 'Optionally describe the new category for future reference' %>
+    <div class="errors">
+        <% unless @list.errors[:description].empty? %>
+            <%= @list.errors[:description][0] %>
+        <% end %>
+        &nbsp;
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<%= render 'admin/lists/menu' %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/create-black.png' %> New List</h1>
+
+    <%= form_for @list, url: {action: 'create'} do |f| %>
+        <%= render 'admin/lists/form', form: f %>
+        <div class="actions">
+            <%= f.submit 'Create List' %>
+        </div>
+    <% end %>
+</section>

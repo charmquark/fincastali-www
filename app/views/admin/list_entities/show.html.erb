@@ -1,0 +1,15 @@
+<%= render 'admin/list_entities/menu' %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/show-black.png' %> List Entity: <%= @entity.name %></h1>
+    <p class="big"><%= @entity.description %></p>
+    <ul>
+        <% @entity.urls.split(/\n/).each do |url| %>
+            <li><%= link_to raw(ListEntity::Utils.display_text_for_url(url)), url %></li>
+        <% end %>
+    </ul>
+
+    <h2><%= image_tag 'admin/icons/actions/index-black.png' %> Listings</h2>
+    <p>This entity currently has <%= @entity.listings.count %> listings.</p>
+    <div>
+    </div>
+</section>

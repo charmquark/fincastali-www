@@ -17,14 +17,18 @@ ListCategory
 Listing                                                 (a listing simply joins an entity to a category)
     belongs-to      ListCategory    as :category
     belongs-to      ListEntity      as :entity
+    has-one         ListingImage    as :image
+
+
+ListingImage
+    belongs-to      Listing
 
 
 ListEntity
     name            string                              (name of entity; eg, 'Beloved Viking Vinyl' or 'Bob Smith')
     description     string                              (short description; appears on page, in listing card)
     accepts_custom  boolean                             (whether the entity accepts custom orders)
-    image           string                              (decorative image to be used behind listings on page) (rather than string, store image directly in db?)
-    urls            string                              (web address(es) of shopfront or whatever) (serialized array? yml? delimited?)
+    urls            text                                (web address(es) of shopfront or whatever) (serialized array? yml? delimited?)
 
     has-many        Listing         as: listings        (one entity may have multiple listings)
 

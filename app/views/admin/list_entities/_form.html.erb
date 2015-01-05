@@ -1,0 +1,45 @@
+<div class="two-fields">
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: 'Display name' %>
+        <div class="errors">
+            <% unless @entity.errors[:name].empty? %>
+                <%= @entity.errors[:name][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+    <div class="field">
+        <div class="pseudo-label">&nbsp;</div>
+        <%= form.check_box :accepts_custom %>
+        <%= form.label :accepts_custom do %><span></span>Accepts custom<% end %>
+        <div class="errors">
+            <% unless @entity.errors[:accepts_custom].empty? %>
+                <%= @entity.errors[:accepts_custom][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="two-fields">
+    <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, placeholder: 'Short and specific description of the new entity...' %>
+        <div class="errors">
+            <% unless @entity.errors[:description].empty? %>
+                <%= @entity.errors[:description][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+    <div class="field">
+        <%= form.label :urls %>
+        <%= form.text_area :urls, placeholder: 'List each url on its own line...' %>
+        <div class="errors">
+            <% unless @entity.errors[:urls].empty? %>
+                <%= @entity.errors[:urls][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+</div>

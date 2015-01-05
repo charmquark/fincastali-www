@@ -1,0 +1,11 @@
+<%= render 'admin/lists/menu' %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/edit-black.png' %> Edit Category</h1>
+
+    <%= form_for @category, url: {action: 'update'} do |f| %>
+        <%= render 'admin/list_categories/form', form: f %>
+        <div class="actions">
+            <%= f.submit 'Update Category' %>
+        </div>
+    <% end %>
+</section>

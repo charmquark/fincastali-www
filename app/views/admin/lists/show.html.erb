@@ -1,0 +1,38 @@
+<%= render 'admin/lists/menu' %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/show-black.png' %> List: <%= @list.name %></h1>
+    <p class="big"><%= @list.description %></p>
+
+    <h2><%= image_tag 'admin/icons/actions/index-black.png' %> Categories</h2>
+    <p>This list currently has <%= @list.categories.count %> categories.</p>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <% @list.categories.order(:name).each do |category| %>
+                <tr>
+                    <td class="name"><%= category.name %></td>
+                    <td><%= category.description %></td>
+                    <td><%= category.listings.count %></td>
+                    <td class="actions">
+                        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_category_path(category) %>
+                        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_category_path(category) %>
+                        <%= link_to image_tag('admin/icons/actions/destroy-black-sm.png'), '#' %>
+                    </td>
+                </tr>
+            <% end %>
+            <tr>
+                <td></td><td></td><td></td>
+                <td class="actions">
+                    <%= link_to new_admin_list_category_path(@list) do %>
+                        <%= image_tag('admin/icons/actions/create-black.png') %> New Category
+                    <% end %>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

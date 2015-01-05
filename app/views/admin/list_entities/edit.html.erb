@@ -1,0 +1,11 @@
+<%= render 'admin/list_entities/menu' %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/edit-black.png' %> Edit List Entity</h1>
+
+    <%= form_for @entity, url: {action: 'update'} do |f| %>
+        <%= render 'admin/list_entities/form', form: f %>
+        <div class="actions">
+            <%= f.submit 'Update Entity' %>
+        </div>
+    <% end %>
+</section>

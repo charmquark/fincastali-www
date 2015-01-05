@@ -1,0 +1,32 @@
+<div class="two-fields">
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: 'Display name' %>
+        <div class="errors">
+            <% unless @list.errors[:name].empty? %>
+                <%= @list.errors[:name][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+    <div class="field">
+        <%= form.label :tag %>
+        <%= form.text_field :tag, placeholder: 'A unique tag; one word or with_underscores' %>
+        <div class="errors">
+            <% unless @list.errors[:tag].empty? %>
+                <%= @list.errors[:tag][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, placeholder: 'Optionally describe the new list for future reference' %>
+    <div class="errors">
+        <% unless @list.errors[:description].empty? %>
+            <%= @list.errors[:description][0] %>
+        <% end %>
+        &nbsp;
+    </div>
+</div>

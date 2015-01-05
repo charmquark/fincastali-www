@@ -2,7 +2,9 @@ Rails.application.routes.draw do
     get 'home'                        => 'static#home'
     get 'heathenry(/:category/:name)' => 'static#heathenry'   , as: :heathenry
 
-    get 'news'  => 'news#index'
+    get 'lists'         => 'lists#index'    , as: :lists
+    get 'lists/:tag'    => 'lists#show'     , as: :list
+    get 'news'          => 'news#index'     , as: :news
 
     root 'static#home'
 
@@ -10,6 +12,17 @@ Rails.application.routes.draw do
         get     'session'   => 'sessions#new'       , as: :login
         post    'session'   => 'sessions#create'    , as: :process_login
         delete  'session'   => 'sessions#destroy'   , as: :logout
+
+        resources :lists do
+            resources :list_categories, only: [:new, :create], path: 'categories', as: :categories do
+                resources :listings, only: [:new, :create]
+            end
+        end
+        resources :list_entities do
+            resources :listings, only: [:new, :create]
+        end
+        resources :list_categories, only: [:show, :edit, :update, :destroy]
+        resources :listings, only: [:show, :edit, :update, :destroy]
 
         root 'sessions#index'
     end

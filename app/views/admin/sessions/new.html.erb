@@ -2,11 +2,16 @@
     <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 <% end -%>
 
-<div id="site-login">
-    <p class="big">You must log in to the administrative interface before continuing.</p>
+<section>
+    <p class="big">You must log in to continue.</p>
 
     <%= form_tag admin_process_login_path do %>
-        <%= password_field_tag :password %>
-        <%= submit_tag 'Login' %>
+        <div class="field">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+        </div>
+        <div class="actions">
+            <%= submit_tag 'Login' %>
+        </div>
     <% end -%>
-</div>
+</section>

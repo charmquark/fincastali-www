@@ -1,0 +1,13 @@
+<%= render 'admin/menu' %>
+<section id="admin-list-entities-menu" class="menu">
+    <span class="title">List Entities</span>
+    <%= link_to image_tag('admin/icons/actions/index-black-sm.png'), admin_list_entities_path %>
+    <%= link_to image_tag('admin/icons/actions/create-black-sm.png'), new_admin_list_entity_path %>
+
+    <% unless @entity.nil? || @entity.id.nil? %>
+        <span class="title"><small>List Entity<br>&lsquo;<%= @entity.name %>&rsquo;</small></span>
+        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_entity_path(@entity) %>
+        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_entity_path(@entity) %>
+        <%= link_to image_tag('admin/icons/actions/destroy-black-sm.png'), '#', class: 'icon' %>
+    <% end %>
+</section>
