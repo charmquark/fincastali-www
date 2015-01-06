@@ -1,0 +1,11 @@
+<%= render 'admin/listings/menu', listing: @listing, listing_active: :edit %>
+<section>
+    <h1><%= image_tag 'admin/icons/actions/edit-black.png' %> Edit Listing</h1>
+
+    <%= form_for @listing, url: {action: 'update'} do |f| %>
+        <%= render 'admin/listings/form', form: f, listing: @listing %>
+        <div class="actions">
+            <%= f.submit 'Update Listing' %>
+        </div>
+    <% end %>
+</section>

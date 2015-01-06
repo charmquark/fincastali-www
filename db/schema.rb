@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20150104221134) do
   add_index "listing_images", ["listing_id"], name: "index_listing_images_on_listing_id"
 
   create_table "listings", force: :cascade do |t|
-    t.integer  "list_category_id"
-    t.integer  "list_entity_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "category_id"
+    t.integer  "entity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "listings", ["list_category_id"], name: "index_listings_on_list_category_id"
-  add_index "listings", ["list_entity_id"], name: "index_listings_on_list_entity_id"
+  add_index "listings", ["category_id"], name: "index_listings_on_category_id"
+  add_index "listings", ["entity_id"], name: "index_listings_on_entity_id"
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"

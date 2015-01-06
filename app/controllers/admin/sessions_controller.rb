@@ -9,8 +9,8 @@ class Admin::SessionsController < Admin::ApplicationController
 
     def create
         session[:admin_permission] = false
-        if params[:password] == Admin::PASSWORD_MD5
-            session[:admin_permission] = true
+        if Admin.check_password(params[:password])
+            grant_admin_permission
             redirect_to admin_root_url
         else
             redirect_to admin_login_url

@@ -1,10 +1,13 @@
-<%= render 'admin/lists/menu' %>
+<%= render 'admin/lists/menu', list: @category.list, category: @category, category_active: :show %>
 <section>
     <h1><%= image_tag 'admin/icons/actions/show-black.png' %> Category: <%= @category.name %></h1>
     <p class="big"><%= @category.description %></p>
 
     <h2><%= image_tag 'admin/icons/actions/index-black.png' %> Listings</h2>
-    <p>This category currently has <%= @category.listings.count %> listings.</p>
-    <div>
+    <p>This category currently has <%= @category.listings.size %> listings.</p>
+    <div id="admin-listings-collection">
+        <% @category.listings.each do |listing| %>
+            <%= render 'admin/listings/card', listing: listing, association: :entity %>
+        <% end %>
     </div>
 </section>

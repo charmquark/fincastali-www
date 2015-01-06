@@ -18,16 +18,15 @@ class Admin::ListEntitiesController < Admin::ApplicationController
     end
 
     def show
-        @entity = ListEntity.find params[:id]
+        find_entity
     end
 
     def edit
-        @entity = ListEntity.find params[:id]
+        find_entity
     end
 
     def update
-        @entity = ListEntity.find params[:id]
-        @entity.update entity_params
+        find_entity.update entity_params
         if @entity.save
             redirect_to admin_list_entity_path(@entity)
         else
@@ -36,7 +35,8 @@ class Admin::ListEntitiesController < Admin::ApplicationController
     end
 
     def destroy
-        @entity = ListEntity.find params[:id]
+        find_entity.destroy
+        redirect_to admin_list_entities_path
     end
 
 
@@ -45,6 +45,11 @@ class Admin::ListEntitiesController < Admin::ApplicationController
 
     def entity_params
         params.require(:list_entity).permit(:name, :description, :accepts_custom, :urls)
+    end
+
+
+    def find_entity
+        @entity = ListEntity.find params[:id]
     end
 end
 

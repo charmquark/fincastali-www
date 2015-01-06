@@ -1,4 +1,4 @@
-<%= render 'admin/list_entities/menu' %>
+<%= render 'admin/list_entities/menu', entity: @entity, entity_active: :show %>
 <section>
     <h1><%= image_tag 'admin/icons/actions/show-black.png' %> List Entity: <%= @entity.name %></h1>
     <p class="big"><%= @entity.description %></p>
@@ -9,7 +9,10 @@
     </ul>
 
     <h2><%= image_tag 'admin/icons/actions/index-black.png' %> Listings</h2>
-    <p>This entity currently has <%= @entity.listings.count %> listings.</p>
-    <div>
+    <p>This entity currently has <%= @entity.listings.size %> listings.</p>
+    <div id="admin-listings-collection">
+        <% @entity.listings.each do |listing| %>
+            <%= render 'admin/listings/card', listing: listing, association: :category %>
+        <% end %>
     </div>
 </section>

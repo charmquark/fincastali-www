@@ -6,26 +6,27 @@ Rails.application.routes.draw do
     get 'lists/:tag'    => 'lists#show'     , as: :list
     get 'news'          => 'news#index'     , as: :news
 
-    root 'static#home'
-
     namespace :admin do
         get     'session'   => 'sessions#new'       , as: :login
         post    'session'   => 'sessions#create'    , as: :process_login
         delete  'session'   => 'sessions#destroy'   , as: :logout
 
         resources :lists do
-            resources :list_categories, only: [:new, :create], path: 'categories', as: :categories do
-                resources :listings, only: [:new, :create]
-            end
+            resources :list_categories, only: [:new, :create], path: 'categories', as: :categories
         end
+
+        resources :list_categories, only: [:show, :edit, :update, :destroy] do
+            resources :listings, only: [:new, :create, :edit, :update, :destroy]
+        end
+
         resources :list_entities do
-            resources :listings, only: [:new, :create]
+            resources :listings, only: [:new, :create, :edit, :update, :destroy]
         end
-        resources :list_categories, only: [:show, :edit, :update, :destroy]
-        resources :listings, only: [:show, :edit, :update, :destroy]
 
         root 'sessions#index'
     end
+
+    root 'static#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

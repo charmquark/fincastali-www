@@ -1,13 +1,10 @@
 class ListEntity < ActiveRecord::Base
-    has_many    :listings   , dependent: :destroy   , inverse_of: :entity
+    has_many    :listings   , dependent: :destroy   , inverse_of: :entity   , foreign_key: :entity_id
 
     validates :name,
         presence: true
 
     validates :description,
-        presence: true
-
-    validates :accepts_custom,
         presence: true
 
     validates :urls,

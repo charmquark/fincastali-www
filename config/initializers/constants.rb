@@ -4,6 +4,11 @@ require 'digest'
 
 module Admin
     PASSWORD_MD5 = Digest::MD5.hexdigest Rails.application.secrets.admin_password
+
+
+    def self.check_password(passwd)
+        Digest::MD5.hexdigest(passwd) == PASSWORD_MD5
+    end
 end
 
 

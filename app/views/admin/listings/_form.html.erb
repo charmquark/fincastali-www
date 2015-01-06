@@ -1,0 +1,28 @@
+<div class="two-fields">
+    <div class="field">
+        <%= form.label :entity %>
+        <div class="select-wrapper"><%= form.select :entity_id, [['', nil]] + ListEntity.all.map {|entity| [entity.name, entity.id] } %></div>
+        <div class="errors">
+            <% unless listing.errors[:entity].empty? %>
+                <%= listing.errors[:entity][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+    <div class="field">
+        <%= form.label :category %>
+        <% if listing.category_id? %>
+            <% categories = ListCategory.where(list: listing.category.list) %>
+        <% else %>
+            <% categories = ListCategory.all %>
+        <% end %>
+        <% options = categories.map {|category| ["#{category.list.tag}: #{category.name}", category.id] } %>
+        <div class="select-wrapper"><%= form.select :category_id, [['', nil]] + options %></div>
+        <div class="errors">
+            <% unless listing.errors[:category].empty? %>
+                <%= listing.errors[:category][0] %>
+            <% end %>
+            &nbsp;
+        </div>
+    </div>
+</div>

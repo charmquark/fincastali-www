@@ -18,16 +18,15 @@ class Admin::ListsController < Admin::ApplicationController
     end
 
     def show
-        @list = List.find params[:id]
+        find_list
     end
 
     def edit
-        @list = List.find params[:id]
+        find_list
     end
 
     def update
-        @list = List.find params[:id]
-        @list.update list_params
+        find_list.update list_params
         if @list.save
             redirect_to admin_list_path(@list)
         else
@@ -36,13 +35,17 @@ class Admin::ListsController < Admin::ApplicationController
     end
 
     def destroy
-        @list = List.find params[:id]
-        @list.destroy
+        find_list.destroy
         redirect_to admin_lists_path
     end
 
 
     private
+
+
+    def find_list
+        @list = List.find params[:id]
+    end
 
 
     def list_params

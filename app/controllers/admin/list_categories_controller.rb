@@ -2,8 +2,7 @@
 class Admin::ListCategoriesController < Admin::ApplicationController
     def new
         params.require(:list_id)
-        @list = List.find params[:list_id]
-        @category = ListCategory.new list: @list
+        @category = ListCategory.new list: List.find(params[:list_id])
     end
 
     def create
@@ -16,27 +15,25 @@ class Admin::ListCategoriesController < Admin::ApplicationController
     end
 
     def show
-        @category = ListCategory.find params[:id]
-        @list = @category.list
+        find_category
     end
 
     def edit
-        @category = ListCategory.find params[:id]
-        @list = @category.list
+        find_category
     end
 
     def update
-        @category = ListCategory.find params[:id]
-        @category.update category_params
+        find_category.update category_params
         if @category.save
             redirect_to admin_list_category_path(@category)
         else
-            @list = @category.list
             render 'edit'
         end
     end
 
     def destroy
+        find_category.destroy
+        redirect_to admin_list_path(@category.list)
     end
 
 
@@ -45,6 +42,11 @@ class Admin::ListCategoriesController < Admin::ApplicationController
 
     def category_params
         params.require(:list_category).permit(:name, :description, :list_id)
+    end
+
+
+    def find_category
+        @category = ListCategory.find params[:id]
     end
 end
 

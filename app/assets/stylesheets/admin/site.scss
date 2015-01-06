@@ -71,9 +71,8 @@ form {
         width: 100%;
         min-width: 24em;
 
-        padding: $gap-small;
-
         line-height: $font-size-h3;
+        padding: $gap-small;
 
         &:focus { outline: $gap-tiny $color-accent-lite solid; }
     }
@@ -186,16 +185,33 @@ form {
 
 
     .field_with_errors {
-        display: table;
-
-
         label { color: $red-700; }
+    }
 
 
-        input {
-            &[type=text] {
-                border-color: $red-500;
-            }
+    .select-wrapper {
+        background-color: #fff;
+        background-image: image-url('admin/drop-down-black.png');
+        background-position: right center;
+        background-repeat: no-repeat;
+        border: $gap-tiny $color-primary solid;
+        color: $black-text;
+
+        width: 100%;
+        min-width: 24em;
+
+        overflow-x: hidden;
+
+
+        select {
+            background: transparent;
+
+            width: 104%;
+
+            line-height: $font-size-h3;
+            padding: $gap-small;
+
+            &:focus { outline: $gap-tiny $color-accent-lite solid; }
         }
     }
 
@@ -351,8 +367,49 @@ table {
     thead { @include bgfg_primary; }
 
 
-    tr {
-        &:nth-child(even) { background: rgba($color-primary-lite, $alpha-white-hint); }
+    tr { &:nth-child(even) { background: rgba($color-primary-lite, $alpha-white-hint); } }
+}
+
+
+.admin-listing-card {
+    box-shadow: 0px 2px 4px $black-secondary;
+    width: 360px;
+
+    margin-bottom: $gap-large;
+
+    &:nth-child(odd) { margin-right: $gap-large; }
+
+    float: left;
+
+    .association {
+        @include bgfg_primary_dark;
+
+        font-weight: bold;
+
+        font-size: $font-size-big;
+        padding: $gap-tiny $gap-small;
+    }
+
+
+    .card {
+        background-color: #fff;
+        color: $black-text;
+        text-shadow: 0px 0px 4px $white-text;
+
+        height: 200px;
+
+        padding: $gap-small;
+
+        position: relative;
+
+
+        a { display: block; }
+
+
+        p { margin-top: $gap-small; }
+
+
+        .name { font-size: $font-size-h3; }
     }
 }
 
@@ -450,8 +507,7 @@ table {
 
 
             a {
-                @include clearfix;
-
+                border: 1px transparent solid;
                 color: $black-text;
 
                 vertical-align: middle;
@@ -467,6 +523,11 @@ table {
 
 
                     img { opacity: $alpha-black-text; }
+                }
+
+                &.active {
+                    background: $color-accent-lite;
+                    border-color: $color-primary;
                 }
 
 

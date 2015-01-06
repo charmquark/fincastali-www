@@ -1,13 +1,19 @@
-<%= render 'admin/menu' %>
+<% entity ||= nil %>
+<% entity_active ||= nil %>
+<% listing_active ||= nil %>
+
+<%= render 'admin/menu', active: :list_entity %>
+
 <section id="admin-list-entities-menu" class="menu">
     <span class="title">List Entities</span>
-    <%= link_to image_tag('admin/icons/actions/index-black-sm.png'), admin_list_entities_path %>
-    <%= link_to image_tag('admin/icons/actions/create-black-sm.png'), new_admin_list_entity_path %>
+    <%= link_to image_tag('admin/icons/actions/index-black-sm.png') , admin_list_entities_path  , class: active_class(entity_active, :index) %>
+    <%= link_to image_tag('admin/icons/actions/create-black-sm.png'), new_admin_list_entity_path, class: active_class(entity_active, :new) %>
 
-    <% unless @entity.nil? || @entity.id.nil? %>
-        <span class="title"><small>List Entity<br>&lsquo;<%= @entity.name %>&rsquo;</small></span>
-        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_entity_path(@entity) %>
-        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_entity_path(@entity) %>
-        <%= link_to image_tag('admin/icons/actions/destroy-black-sm.png'), '#', class: 'icon' %>
+    <% unless entity.nil? || entity.id.nil? %>
+        <span class="title"><small>List Entity<br>&lsquo;<%= entity.name %>&rsquo;</small></span>
+        <%= link_to         image_tag('admin/icons/actions/show-black-sm.png')      , admin_list_entity_path(entity)            , class: active_class(entity_active, :show)%>
+        <%= link_to         image_tag('admin/icons/actions/edit-black-sm.png')      , edit_admin_list_entity_path(entity)       , class: active_class(entity_active, :edit)%>
+        <%= link_to_destroy image_tag('admin/icons/actions/destroy-black-sm.png')   , admin_list_entity_path(entity)            %>
+        <%= link_to         image_tag('admin/icons/actions/create-black-sm.png')    , new_admin_list_entity_listing_path(entity), class: active_class(listing_active, :new) %>
     <% end %>
 </section>

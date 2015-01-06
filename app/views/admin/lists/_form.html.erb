@@ -3,8 +3,8 @@
         <%= form.label :name %>
         <%= form.text_field :name, placeholder: 'Display name' %>
         <div class="errors">
-            <% unless @list.errors[:name].empty? %>
-                <%= @list.errors[:name][0] %>
+            <% unless list.errors[:name].empty? %>
+                <%= list.errors[:name][0] %>
             <% end %>
             &nbsp;
         </div>
@@ -13,8 +13,8 @@
         <%= form.label :tag %>
         <%= form.text_field :tag, placeholder: 'A unique tag; one word or with_underscores' %>
         <div class="errors">
-            <% unless @list.errors[:tag].empty? %>
-                <%= @list.errors[:tag][0] %>
+            <% unless list.errors[:tag].empty? %>
+                <%= list.errors[:tag][0] %>
             <% end %>
             &nbsp;
         </div>
@@ -24,8 +24,8 @@
     <%= form.label :description %>
     <%= form.text_field :description, placeholder: 'Optionally describe the new list for future reference' %>
     <div class="errors">
-        <% unless @list.errors[:description].empty? %>
-            <%= @list.errors[:description][0] %>
+        <% unless list.errors[:description].empty? %>
+            <%= list.errors[:description][0] %>
         <% end %>
         &nbsp;
     </div>

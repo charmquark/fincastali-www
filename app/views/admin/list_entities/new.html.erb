@@ -1,9 +1,9 @@
-<%= render 'admin/list_entities/menu' %>
+<%= render 'admin/list_entities/menu', entity_active: :new %>
 <section>
     <h1><%= image_tag 'admin/icons/actions/create-black.png' %> New List Entity</h1>
 
     <%= form_for @entity, url: {action: 'create'} do |f| %>
-        <%= render 'admin/list_entities/form', form: f %>
+        <%= render 'admin/list_entities/form', form: f, entity: @entity %>
         <div class="actions">
             <%= f.submit 'Create Entity' %>
         </div>
