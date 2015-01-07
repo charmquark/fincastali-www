@@ -23,8 +23,10 @@
             Please check their own websites for more information.</p>
         </div>
     </section>
+<% end %>
 
-    <% content_for :after_main do %>
+<% content_for :after_main do %>
+    <% cache [@list, 'after_main'] do %>
         <div id="lists-storage">
             <% @list.categories.each do |category| %>
                 <% if category.listings.size != 0 %>
