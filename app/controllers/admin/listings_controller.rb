@@ -44,7 +44,7 @@ class Admin::ListingsController < Admin::ApplicationController
 
 
     def listing_params
-        params.require(:listing).permit(:category_id, :entity_id)
+        params.require(:listing).permit(:category_id, :entity_id, :image)
     end
 
 

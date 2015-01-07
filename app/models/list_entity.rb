@@ -16,8 +16,8 @@ class ListEntity < ActiveRecord::Base
             parsed = URI(url)
             host = parsed.host.split /\./
             host.shift if host[0] == 'www'
-            query = (parsed.query.nil?) ? '' : "<span class=\"query\">?#{ parsed.query }</span>"
-            fragment = (parsed.fragment.nil?) ? '' : "<span class=\"fragment\">##{ parsed.fragment }</span>"
+            query = (parsed.query.nil?) ? '' : "?#{ parsed.query }"
+            fragment = (parsed.fragment.nil?) ? '' : "##{ parsed.fragment }"
             "#{ host.join '.' }#{ parsed.path }#{ query }#{ fragment }"
         end
     end

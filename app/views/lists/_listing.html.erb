@@ -1,0 +1,11 @@
+<div class="listing">
+    <% unless listing.image.nil? %><img src="<%= listing.image.url %>" class="bg"><% end %>
+    <% if listing.entity.accepts_custom %><%= image_tag 'lists/accepts_custom.png', class: 'accepts-custom' %><% end %>
+    <div class="name"><%= listing.entity.name %></div>
+    <p><%= listing.entity.description %></p>
+    <div class="links">
+        <% listing.entity.urls.split(/\n/).each do |url| %>
+            <%= link_to raw(ListEntity::Utils.display_text_for_url(url)), url %>
+        <% end %>
+    </div>
+</div>

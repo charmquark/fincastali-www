@@ -14,7 +14,7 @@ class Admin::ListEntitiesController < Admin::ApplicationController
     end
 
     def index
-        @entities = ListEntity.all
+        @entities = ListEntity.order :name
     end
 
     def show

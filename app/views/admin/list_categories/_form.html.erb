@@ -11,7 +11,7 @@
 </div>
 <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, placeholder: 'Optionally describe the new category for future reference' %>
+    <%= form.text_field :description, placeholder: 'Describe the new category for future reference' %>
     <div class="errors">
         <% unless category.errors[:description].empty? %>
             <%= category.errors[:description][0] %>

@@ -3,6 +3,13 @@ module ApplicationHelper
         which == sym ? 'active' : ''
     end
 
+    def form_field_error_msg(model, field_name)
+        errs = model.errors[field_name]
+        content_tag(:div, class: 'errors') do
+            errs.empty? ? raw('&nbsp;') : errs[0]
+        end
+    end
+
     def link_to_destroy(text, link, options = nil)
         options ||= {}
         options.deep_merge! method: :delete, data: {confirm: 'Are you sure?'}

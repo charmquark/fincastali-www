@@ -125,6 +125,14 @@ h2 {
 h3 { font-size: $font-size-h3; }
 
 
+hr {
+    border: $black-divider solid;
+    border-width: 2px 0px 0px 0px;
+
+    margin: $gap-large $gap-medium;
+}
+
+
 ul { padding-left: $gap-large; }
 
 
@@ -348,5 +356,6 @@ ul { padding-left: $gap-large; }
 
 @import 'page-heathenry.scss';
 @import 'page-home.scss';
+@import 'page-lists.scss';
 @import 'page-news.scss';
 

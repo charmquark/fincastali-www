@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104221134) do
+ActiveRecord::Schema.define(version: 20150107052455) do
 
   create_table "list_categories", force: :cascade do |t|
     t.string   "name"
@@ -32,20 +32,15 @@ ActiveRecord::Schema.define(version: 20150104221134) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "listing_images", force: :cascade do |t|
-    t.string   "path"
-    t.integer  "listing_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "listing_images", ["listing_id"], name: "index_listing_images_on_listing_id"
-
   create_table "listings", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "entity_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "listings", ["category_id"], name: "index_listings_on_category_id"
@@ -53,10 +48,11 @@ ActiveRecord::Schema.define(version: 20150104221134) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "tag"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "short_description"
   end
 
   add_index "lists", ["tag"], name: "index_lists_on_tag", unique: true

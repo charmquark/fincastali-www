@@ -49,7 +49,7 @@ class Admin::ListsController < Admin::ApplicationController
 
 
     def list_params
-        params.require(:list).permit(:name, :description, :tag)
+        params.require(:list).permit(:name, :description, :short_description, :tag)
     end
 end
 

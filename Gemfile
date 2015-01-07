@@ -51,3 +51,6 @@ gem 'unicode_utils'
 
 # Tumblr
 gem 'tumblr_client'
+
+# Paperclip provides assistance handling uploaded image attachments, such as for listings
+gem "paperclip", "~> 4.2"

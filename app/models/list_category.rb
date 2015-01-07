@@ -10,4 +10,9 @@ class ListCategory < ActiveRecord::Base
 
     validates :list,
         presence: true
+
+
+    def image_dir
+        self.list.image_dir
+    end
 end

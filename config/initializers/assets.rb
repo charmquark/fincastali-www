@@ -12,6 +12,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(
     normalize.css
 
+    lists.js
     news.js
     static.js
 )

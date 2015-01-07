@@ -5,9 +5,14 @@
 
 $dim-content:           1000px;
 $dim-heading:            250px;
+$dim-listing-width:      360px;
+$dim-listing-height:     200px;
 $dim-sidebar:            200px;
 $dim-slider-heading:     500px;
 $dim-social-media:        64px;
+
+
+$listing-bg-opacity:    0.2;
 
 
 $color-primary:         $blue-grey-500; /* fg white */
@@ -19,6 +24,7 @@ $color-accent-dark: $green-A700; /* fg black */
 $color-accent-lite: $green-A100; /* fg black */
 
 
+$gap-tiny:       5px;
 $gap-small:     10px;
 $gap-medium:    20px;
 $gap-large:     40px;
