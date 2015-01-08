@@ -36,7 +36,7 @@ form {
                     @include square($dim-icon-sm);
 
                     background-color: $color-primary;
-                    background-image: image-url('admin/icons/toggle/unchecked-white-sm.png');
+                    background-image: image-url('icons/toggle/unchecked-white-sm.png');
                     background-position: center center;
                     background-repeat: no-repeat;
                     cursor: pointer;
@@ -50,7 +50,7 @@ form {
 
 
             &:checked + label span {
-                background-image: image-url('admin/icons/toggle/checked-white-sm.png');
+                background-image: image-url('icons/toggle/checked-white-sm.png');
             }
         }
 
