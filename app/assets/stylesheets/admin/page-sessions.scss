@@ -1,0 +1,27 @@
+
+#site-login {
+    @include bgfg_primary_lite;
+
+    border: $gap-small $color-primary-dark solid;
+
+    max-width: 50%;
+
+    margin: $gap-huge auto;
+    padding: $gap-huge;
+
+    position: relative;
+
+    &:before {
+        @include absolute(corner_top_right, $gap-small);
+        @include square($dim-icon);
+
+        background: url('/assets/admin/icons/warning-black.png');
+        opacity: $alpha-black-icon;
+
+        content: "";
+    }
+
+
+    input { margin-right: $gap-small; }
+}
+

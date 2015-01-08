@@ -1,4 +1,4 @@
-<div class="listing">
+<div class="lists-listing">
     <% unless listing.image.nil? %><img src="<%= listing.image.url %>" class="bg"><% end %>
     <% if listing.entity.accepts_custom %><%= image_tag 'lists/accepts_custom.png', class: 'accepts-custom' %><% end %>
     <div class="name"><%= listing.entity.name %></div>

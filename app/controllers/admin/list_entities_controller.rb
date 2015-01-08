@@ -9,7 +9,7 @@ class Admin::ListEntitiesController < Admin::ApplicationController
         if @entity.save
             redirect_to admin_list_entity_path(@entity)
         else
-            redirect_to 'new'
+            render 'new'
         end
     end
 
@@ -30,7 +30,7 @@ class Admin::ListEntitiesController < Admin::ApplicationController
         if @entity.save
             redirect_to admin_list_entity_path(@entity)
         else
-            redirect_to 'edit'
+            render 'edit'
         end
     end
 

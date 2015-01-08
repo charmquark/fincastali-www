@@ -1,11 +1,14 @@
 <%= render 'admin/lists/menu', list: @list, list_active: :edit %>
 <section>
-    <h1><%= image_tag 'admin/icons/actions/edit-black.png' %> Edit List</h1>
+    <h1><%= icon_tag 'actions/edit-black' %> Edit List</h1>
 
     <%= form_for @list, url: {action: 'update'} do |f| %>
         <%= render 'admin/lists/form', form: f, list: @list %>
         <div class="actions">
             <%= f.submit 'Update List' %>
+            <input type="reset" value="Reset Form">
+            <%= link_to 'Cancel to List', admin_list_path(@list) %>
+            <%= link_to 'Cancel to Index', admin_lists_path %>
         </div>
     <% end %>
 </section>

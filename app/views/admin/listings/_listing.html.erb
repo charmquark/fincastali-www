@@ -1,0 +1,23 @@
+<div class="admin-lists-listing">
+    <div class="association">
+        <% if association == :category %>
+            <%= link_to listing.entity.name, admin_list_entity_path(listing.entity) %>
+            <%= link_to_destroy sm_icon_tag('actions/destroy-white'), admin_list_category_listing_path(listing.category, listing), class: 'action-link' %>
+            <%= link_to sm_icon_tag('actions/edit-white'), edit_admin_list_category_listing_path(listing.category, listing), class: 'action-link' %>
+        <% elsif association == :entity %>
+            <%= link_to listing.category.list.tag, admin_list_path(listing.category.list) %>:
+            <%= link_to listing.category.name, admin_list_category_path(listing.category) %>
+            <%= link_to_destroy sm_icon_tag('actions/destroy-white'), admin_list_entity_listing_path(listing.entity, listing), class: 'action-link' %>
+            <%= link_to sm_icon_tag('actions/edit-white'), edit_admin_list_entity_listing_path(listing.entity, listing), class: 'action-link' %>
+        <% end %>
+    </div>
+    <%= render 'lists/listing', listing: listing %>
+    <!--<div class="card">
+        <% unless listing.image.nil? %><img src="<%= listing.image.url %>"><% end %>
+        <div class="name"><%= listing.entity.name %></div>
+        <% listing.entity.urls.split(/\n/).each do |url| %>
+            <%= link_to raw(ListEntity::Utils.display_text_for_url(url)), url %>
+        <% end %>
+        <p><%= listing.entity.description %></p>
+    </div>-->
+</div>

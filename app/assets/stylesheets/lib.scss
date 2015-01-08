@@ -45,6 +45,9 @@
 }
 
 
+@mixin card_shadow { box-shadow: 0px 2px 4px $black-secondary; }
+
+
 @mixin clearfix {
     &:after {
         display: table;
@@ -140,6 +143,20 @@
 }
 
 
+@mixin icon($color, $dim: $dim-icon) {
+    @include square($dim);
+
+    opacity: if($color == black, $alpha-black-icon, $alpha-white-icon);
+    vertical-align: middle;
+
+    transition: opacity 0.5s;
+}
+
+@mixin icon_sm($color) {
+    @include icon($color, $dim-icon-sm);
+}
+
+
 @mixin inner_section_cards {
     > .inner > section { @extend %card; }
 }
@@ -178,8 +195,7 @@
 
 %card {
     @include bgfg_whiteblack;
-
-    box-shadow: 0px 2px 4px $black-secondary;
+    @include card_shadow;
 
     margin-bottom: $margin-card;
 

@@ -33,16 +33,11 @@ a {
         color: $color-accent;
 
 
-        img { opacity: $alpha-white-text; }
-    }
-
-
-    img {
-        opacity: $alpha-white-icon;
-        vertical-align: middle;
-
-        display: inline-block;
-        transition: opacity 0.5s;
+        .icon,
+        .icon-sm { 
+            &.black { opacity: $alpha-black-text; }
+            &.white { opacity: $alpha-white-text; }
+        }
     }
 
 
@@ -51,210 +46,6 @@ a {
         opacity: $alpha-black-secondary;
 
         font-size: $font-size-small;
-    }
-}
-
-
-form {
-    border: $gap-tiny $color-primary solid;
-
-    display: block;
-
-
-    input[type=password],
-    input[type=text],
-    textarea {
-        @include bgfg_whiteblack;
-
-        border: $gap-tiny $color-primary solid;
-
-        width: 100%;
-        min-width: 24em;
-
-        line-height: $font-size-h3;
-        padding: $gap-small;
-
-        &:focus { outline: $gap-tiny $color-accent-lite solid; }
-    }
-
-
-    input {
-        &[type=checkbox] {
-            display: none;
-
-
-            & + label {
-                font-size: $font-size-base;
-                line-height: $font-size-h3;
-
-
-                span {
-                    @include square($dim-icon-sm);
-
-                    background-color: $color-primary;
-                    background-image: image-url('admin/icons/toggle/unchecked-white-sm.png');
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                    cursor: pointer;
-                    vertical-align: middle;
-
-                    margin: 0px $gap-tiny;
-
-                    display: inline-block;
-                }
-            }
-
-
-            &:checked + label span {
-                background-image: image-url('admin/icons/toggle/checked-white-sm.png');
-            }
-        }
-
-        &[type=password],
-        &[type=text] {
-            min-height: $font-size-h3;
-        }
-    }
-
-
-    label,
-    .pseudo-label {
-        font-weight: bold;
-
-        font-size: $font-size-small;
-        letter-spacing: 1px;
-        line-height: $font-size-small;
-        padding: $gap-tiny;
-
-        display: block;
-    }
-
-
-    textarea {
-        @include bgfg_whiteblack;
-
-        border: $gap-tiny $color-primary solid;
-
-        width: 100%;
-        min-width: 24em;
-        min-height: (($font-size-h3 * 5) + ($gap-small * 2) + ($gap-tiny * 2));
-
-        padding: $gap-small;
-
-        line-height: $font-size-h3;
-    }
-
-
-    .actions {
-        @include bgfg_primary;
-
-        border-top: $gap-tiny $color-primary solid;
-
-        padding: $gap-small;
-
-
-        input {
-            &[type=submit] {
-                @include bgfg_accent;
-
-                border: none;
-
-                font-weight: bold;
-                text-transform: uppercase;
-
-                font-size: $font-size-base;
-                line-height: 1;
-                padding: $gap-small;
-            }
-        }
-    }
-
-
-    .errors {
-        color: $red-700;
-
-        font-size: $font-size-small;
-        line-height: $font-size-small;
-        padding: $gap-tiny;
-    }
-
-
-    .field {
-        padding: $gap-small;
-    }
-
-
-    .field_with_errors {
-        label { color: $red-700; }
-    }
-
-
-    .listing-image {
-        width: $dim-listing-card-width;
-        height: $dim-listing-card-height;
-
-        position: relative;
-
-        z-index: 0;
-
-
-        img {
-            max-width: 100%;
-            max-height: 100%;
-
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-
-            &:nth-child(1) {
-                z-index: 1;
-            }
-
-            &:nth-child(2) {
-                opacity: $listing-card-bg-opacity;
-
-                z-index: 2;
-            }
-        }
-    }
-
-
-    .select-wrapper {
-        background-color: #fff;
-        background-image: image-url('admin/drop-down-black.png');
-        background-position: right center;
-        background-repeat: no-repeat;
-        border: $gap-tiny $color-primary solid;
-        color: $black-text;
-
-        width: 100%;
-        min-width: 24em;
-
-        overflow-x: hidden;
-
-
-        select {
-            background: transparent;
-
-            width: 104%;
-
-            line-height: $font-size-h3;
-            padding: $gap-small;
-
-            &:focus { outline: $gap-tiny $color-accent-lite solid; }
-        }
-    }
-
-
-    .two-fields {
-        @include flex_row;
-
-        width: 100%;
-
-        .field {
-            display: inline-block;
-            flex-grow: 1;
-        }
     }
 }
 
@@ -270,19 +61,6 @@ h6 {
     line-height: 1;
 }
 
-h1,
-h2,
-h3 {
-    img {
-        opacity: $alpha-black-text;
-        vertical-align: middle;
-
-        position: relative;
-
-        display: inline-block;
-    }
-}
-
 
 h4,
 h5,
@@ -295,11 +73,8 @@ h1 {
     margin: $gap-small 0px $gap-medium 0px;
 
 
-    img {
-        @include square($font-size-h1);
-
-        top: -3px;
-    }
+    .icon,
+    .icon-sm { top: -3px; }
 }
 
 
@@ -307,11 +82,8 @@ h2 {
     font-size: $font-size-h2;
 
 
-    img {
-        @include square($font-size-h2);
-
-        top: -2px;
-    }
+    .icon,
+    .icon-sm { top: -2px; }
 }
 
 
@@ -319,11 +91,8 @@ h3 {
     font-size: $font-size-h3;
 
 
-    img {
-        @include square($font-size-h3);
-
-        top: -2px;
-    }
+    .icon,
+    .icon-sm { top: -2px; }
 }
 
 
@@ -340,70 +109,8 @@ p {
 }
 
 
-table {
-    border: 1px $color-primary solid;
-
-    width: 100%;
-
-
-    td {
-        border-right: 1px $black-divider dashed;
-
-        padding: $gap-small;
-
-        &:last-child { border: none; }
-
-        &.actions {
-            text-align: center;
-
-            min-width: (($dim-icon-sm * 3) + ($gap-tiny * 12) + ($gap-small * 8));
-
-
-            a {
-                color: $black-icon;
-
-                line-height: 1;
-                margin: 0px $gap-tiny;
-                padding: $gap-tiny;
-
-                display: inline-block;
-                transition: background 0.5s, color 0.5s;
-
-                &:hover {
-                    background: $color-accent-lite;
-                    color: $black-text;
-
-
-                    img { opacity: $alpha-black-text; }
-                }
-
-
-                img {
-                    opacity: $alpha-black-icon;
-                    vertical-align: middle;
-
-                    transition: opacity 0.5s;
-                }
-            }
-        }
-
-        &.name { width: 25%; }
-    }
-
-
-    th { padding: $gap-tiny; }
-
-
-    thead { @include bgfg_primary; }
-
-
-    tr { &:nth-child(even) { background: rgba($color-primary-lite, $alpha-white-hint); } }
-}
-
-
-.admin-listing-card {
-    box-shadow: 0px 2px 4px $black-secondary;
-    width: $dim-listing-card-width;
+.admin-lists-listing {
+    width: $dim-listing-width;
 
     margin-bottom: $gap-large;
 
@@ -417,6 +124,7 @@ table {
         font-weight: bold;
 
         font-size: $font-size-big;
+        margin-bottom: $gap-small;
         padding: $gap-tiny $gap-small;
 
 
@@ -426,49 +134,27 @@ table {
             float: right;
         }
     }
-
-
-    .card {
-        background-color: #fff;
-        background-image: url('/images/lists/default_card_image.jpg');
-        background-repeat: no-repeat;
-
-        color: $black-text;
-        text-shadow: 0px 0px 4px $white-text;
-
-        height: $dim-listing-card-height;
-
-        padding: $gap-small;
-
-        position: relative;
-
-        overflow: hidden;
-        z-index: 0;
-
-
-        a { display: block; }
-
-
-        img {
-            opacity: 0.2;
-
-            max-width: 100%;
-            max-height: 100%;
-
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-
-            z-index: -1;
-        }
-
-
-        p { margin-top: $gap-small; }
-
-
-        .name { font-size: $font-size-h3; }
-    }
 }
+
+
+.icon,
+.icon-sm {
+    vertical-align: middle;
+
+    position: relative;
+
+    display: inline-block;
+    transition: opacity 0.5s;
+
+    &.black { opacity: $alpha-black-icon; }
+    &.white { opacity: $alpha-white-icon; }
+}
+
+
+.icon { @include square($dim-icon); }
+
+
+.icon-sm { @include square($dim-icon-sm); }
 
 
 #site-branding {
@@ -524,33 +210,6 @@ table {
 }
 
 
-#site-login {
-    @include bgfg_primary_lite;
-
-    border: $gap-small $color-primary-dark solid;
-
-    max-width: 50%;
-
-    margin: $gap-huge auto;
-    padding: $gap-huge;
-
-    position: relative;
-
-    &:before {
-        @include absolute(corner_top_right, $gap-small);
-        @include square($dim-icon);
-
-        background: url('/assets/admin/icons/warning-black.png');
-        opacity: $alpha-black-icon;
-
-        content: "";
-    }
-
-
-    input { margin-right: $gap-small; }
-}
-
-
 #site-main {
     @include clearfix;
 
@@ -575,23 +234,11 @@ table {
                 display: inline-block;
                 transition: background 0.5s;
 
-                &:hover {
-                    background: $color-accent-lite;
-
-
-                    img { opacity: $alpha-black-text; }
-                }
+                &:hover { background: $color-accent-lite; }
 
                 &.active {
                     background: $color-accent-lite;
                     border-color: $color-primary;
-                }
-
-
-                img {
-                    opacity: $alpha-black-icon;
-
-                    transition: opacity 0.5s;
                 }
             }
 
@@ -626,4 +273,13 @@ table {
         }
     }
 }
+
+
+@import 'site-forms.scss';
+@import 'site-tables.scss';
+
+@import 'page-lists.scss';
+@import 'page-sessions.scss';
+
+@import '../lists-listing.scss';
 

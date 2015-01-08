@@ -2,21 +2,21 @@
     <div class="field">
         <%= form.label :name %>
         <%= form.text_field :name, placeholder: 'Display name' %>
-        <%= form_field_error_msg list, :name %>
+        <%= form.error_msg :name %>
     </div>
     <div class="field">
         <%= form.label :tag %>
         <%= form.text_field :tag, placeholder: 'A unique tag; one word or with_underscores' %>
-        <%= form_field_error_msg list, :tag %>
+        <%= form.error_msg :tag %>
     </div>
 </div>
 <div class="field">
     <%= form.label :short_description %>
     <%= form.text_field :short_description, placeholder: 'A short description for use in menus and such' %>
-    <%= form_field_error_msg list, :short_description %>
+    <%= form.error_msg :short_description %>
 </div>
 <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, placeholder: 'The description that appears on the list page - it will be included raw (but wrapped in a p-element), so including html elements and/or entities is fine' %>
-    <%= form_field_error_msg list, :description %>
+    <%= form.error_msg :description %>
 </div>

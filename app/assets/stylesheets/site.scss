@@ -28,7 +28,16 @@ a {
 
     text-decoration: none;
 
-    &:hover { color: $color-accent; }
+    &:hover {
+        color: $color-accent;
+
+
+        .icon,
+        .icon-sm { 
+            &.black { opacity: $alpha-black-text; }
+            &.white { opacity: $alpha-white-text; }
+        }
+    }
 }
 
 
@@ -172,6 +181,26 @@ ul { padding-left: $gap-large; }
         display: none;
     }
 }
+
+
+.icon,
+.icon-sm {
+    vertical-align: middle;
+
+    position: relative;
+
+    display: inline-block;
+    transition: opacity 0.5s;
+
+    &.black { opacity: $alpha-black-icon; }
+    &.white { opacity: $alpha-white-icon; }
+}
+
+
+.icon { @include square($dim-icon); }
+
+
+.icon-sm { @include square($dim-icon-sm); }
 
 
 #sidebar-menu { @extend %sidebar_menu; }

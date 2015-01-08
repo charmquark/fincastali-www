@@ -1,11 +1,13 @@
 <%= render 'admin/lists/menu', list_active: :new %>
 <section>
-    <h1><%= image_tag 'admin/icons/actions/create-black.png' %> New List</h1>
+    <h1><%= icon_tag 'actions/create-black' %> New List</h1>
 
     <%= form_for @list, url: {action: 'create'} do |f| %>
         <%= render 'admin/lists/form', form: f, list: @list %>
         <div class="actions">
             <%= f.submit 'Create List' %>
+            <input type="reset" value="Reset Form">
+            <%= link_to 'Cancel to Index', admin_lists_path %>
         </div>
     <% end %>
 </section>

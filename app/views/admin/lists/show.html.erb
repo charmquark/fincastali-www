@@ -1,10 +1,10 @@
 <%= render 'admin/lists/menu', list: @list, list_active: :show %>
 <section>
-    <h1><%= image_tag 'admin/icons/actions/show-black.png' %> List: <%= @list.name %></h1>
+    <h1><%= icon_tag 'actions/show-black' %> List: <%= @list.name %></h1>
     <p><%= @list.short_description %></p>
     <p class="big"><%= raw @list.description %></p>
 
-    <h2><%= image_tag 'admin/icons/actions/index-black.png' %> Categories</h2>
+    <h2><%= icon_tag 'actions/index-black' %> Categories</h2>
     <p>This list currently has <%= @list.categories.size %> categories.</p>
     <table>
         <thead>
@@ -20,9 +20,9 @@
                     <td><%= category.description %></td>
                     <td><%= category.listings.size %></td>
                     <td class="actions">
-                        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_category_path(category) %>
-                        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_category_path(category) %>
-                        <%= link_to_destroy image_tag('admin/icons/actions/destroy-black-sm.png'), admin_list_category_path(category) %>
+                        <%= link_to sm_icon_tag('actions/show-black'), admin_list_category_path(category) %>
+                        <%= link_to sm_icon_tag('actions/edit-black'), edit_admin_list_category_path(category) %>
+                        <%= link_to_destroy sm_icon_tag('actions/destroy-black'), admin_list_category_path(category) %>
                     </td>
                 </tr>
             <% end %>
@@ -30,7 +30,7 @@
                 <td></td><td></td><td></td>
                 <td class="actions">
                     <%= link_to new_admin_list_category_path(@list) do %>
-                        <%= image_tag('admin/icons/actions/create-black.png') %> New Category
+                        <%= icon_tag('actions/create-black') %> New Category
                     <% end %>
                 </td>
             </tr>

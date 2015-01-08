@@ -1,0 +1,50 @@
+
+table {
+    border: 1px $color-primary solid;
+
+    width: 100%;
+
+
+    td {
+        border-right: 1px $black-divider dashed;
+
+        padding: $gap-small;
+
+        &:last-child { border: none; }
+
+        &.actions {
+            text-align: center;
+
+            min-width: (($dim-icon-sm * 3) + ($gap-tiny * 12) + ($gap-small * 8));
+
+
+            a {
+                color: $black-icon;
+
+                line-height: 1;
+                margin: 0px $gap-tiny;
+                padding: $gap-tiny;
+
+                display: inline-block;
+                transition: background 0.5s, color 0.5s;
+
+                &:hover {
+                    background: $color-accent-lite;
+                    color: $black-text;
+                }
+            }
+        }
+
+        &.name { width: 25%; }
+    }
+
+
+    th { padding: $gap-tiny; }
+
+
+    thead { @include bgfg_primary; }
+
+
+    tr { &:nth-child(even) { background: rgba($color-primary-lite, $alpha-white-hint); } }
+}
+

@@ -1,11 +1,13 @@
 <%= render 'admin/list_entities/menu', entity_active: :new %>
 <section>
-    <h1><%= image_tag 'admin/icons/actions/create-black.png' %> New List Entity</h1>
+    <h1><%= icon_tag 'actions/create-black' %> New List Entity</h1>
 
     <%= form_for @entity, url: {action: 'create'} do |f| %>
         <%= render 'admin/list_entities/form', form: f, entity: @entity %>
         <div class="actions">
             <%= f.submit 'Create Entity' %>
+            <input type="reset" value="Reset Form">
+            <%= link_to 'Cancel to Index', admin_list_entities_path %>
         </div>
     <% end %>
 </section>

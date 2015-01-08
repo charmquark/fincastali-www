@@ -2,7 +2,7 @@
     <div class="field">
         <%= form.label :entity %>
         <div class="select-wrapper"><%= form.select :entity_id, [['', nil]] + ListEntity.all.map {|entity| [entity.name, entity.id] } %></div>
-        <%= form_field_error_msg listing, :entity %>
+        <%= form.error_msg :entity %>
     </div>
     <div class="field">
         <%= form.label :category %>
@@ -13,14 +13,14 @@
         <% end %>
         <% options = categories.map {|category| ["#{category.list.tag}: #{category.name}", category.id] } %>
         <div class="select-wrapper"><%= form.select :category_id, [['', nil]] + options %></div>
-        <%= form_field_error_msg listing, :category %>
+        <%= form.error_msg :category %>
     </div>
 </div>
 <div class="two-fields">
     <div class="field">
         <%= form.label :image %>
         <%= form.file_field :image %>
-        <%= form_field_error_msg listing, :image %>
+        <%= form.error_msg :image %>
     </div>
     <div class="field">
         <label>Current image</label>

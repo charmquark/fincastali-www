@@ -1,7 +1,7 @@
 <%= render 'admin/list_entities/menu', entity_active: :index %>
 
 <section>
-    <h1><%= image_tag 'admin/icons/list-black.png' %> Index of List Entities</h1>
+    <h1><%= icon_tag 'actions/index-black' %> Index of List Entities</h1>
 
     <table>
         <thead>
@@ -17,9 +17,9 @@
                     <td><%= entity.description %></td>
                     <td><%= entity.listings.count %></td>
                     <td class="actions">
-                        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_entity_path(entity) %>
-                        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_entity_path(entity) %>
-                        <%= link_to image_tag('admin/icons/actions/destroy-black-sm.png'), '#' %>
+                        <%= link_to sm_icon_tag('actions/show-black'), admin_list_entity_path(entity) %>
+                        <%= link_to sm_icon_tag('actions/edit-black'), edit_admin_list_entity_path(entity) %>
+                        <%= link_to_destroy sm_icon_tag('actions/destroy-black'), admin_list_entity_path(entity) %>
                     </td>
                 </tr>
             <% end %>
@@ -27,7 +27,7 @@
                 <td></td><td></td><td></td>
                 <td class="actions">
                     <%= link_to new_admin_list_entity_path do %>
-                        <%= image_tag('admin/icons/actions/create-black.png') %> New Entity
+                        <%= icon_tag('actions/create-black') %> New Entity
                     <% end %>
                 </td>
             </tr>

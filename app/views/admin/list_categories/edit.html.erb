@@ -1,11 +1,14 @@
 <%= render 'admin/lists/menu', list: @category.list, category: @category, category_active: :edit %>
 <section>
-    <h1><%= image_tag 'admin/icons/actions/edit-black.png' %> Edit Category</h1>
+    <h1><%= icon_tag 'actions/edit-black' %> Edit Category</h1>
 
     <%= form_for @category, url: {action: 'update'} do |f| %>
         <%= render 'admin/list_categories/form', form: f, category: @category %>
         <div class="actions">
             <%= f.submit 'Update Category' %>
+            <input type="reset" value="Reset Form">
+            <%= link_to 'Cancel to Category', admin_list_category_path(@category) %>
+            <%= link_to 'Cancel to List', admin_list_path(@category.list) %>
         </div>
     <% end %>
 </section>

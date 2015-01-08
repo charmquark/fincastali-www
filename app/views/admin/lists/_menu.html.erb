@@ -8,22 +8,22 @@
 
 <section id="admin-lists-menu" class="menu">
     <span class="title">Lists</span>
-    <%= link_to image_tag('admin/icons/actions/index-black-sm.png') , admin_lists_path      , class: active_class(list_active, :index) %>
-    <%= link_to image_tag('admin/icons/actions/create-black-sm.png'), new_admin_list_path   , class: active_class(list_active, :new)  %>
+    <%= link_to sm_icon_tag('actions/index-black') , admin_lists_path      , class: active_class(list_active, :index) %>
+    <%= link_to sm_icon_tag('actions/create-black'), new_admin_list_path   , class: active_class(list_active, :new)  %>
 
     <% unless list.nil? || list.id.nil? %>
         <span class="title"><small>List<br>&lsquo;<%= list.name %>&rsquo;</small></span>
-        <%= link_to         image_tag('admin/icons/actions/show-black-sm.png')      , admin_list_path(list)             , class: active_class(list_active, :show) %>
-        <%= link_to         image_tag('admin/icons/actions/edit-black-sm.png')      , edit_admin_list_path(list)        , class: active_class(list_active, :edit) %>
-        <%= link_to_destroy image_tag('admin/icons/actions/destroy-black-sm.png')   , admin_list_path(list)             %>
-        <%= link_to         image_tag('admin/icons/actions/create-black-sm.png')    , new_admin_list_category_path(list), class: active_class(category_active, :new) %>
+        <%= link_to         sm_icon_tag('actions/show-black')      , admin_list_path(list)             , class: active_class(list_active, :show) %>
+        <%= link_to         sm_icon_tag('actions/edit-black')      , edit_admin_list_path(list)        , class: active_class(list_active, :edit) %>
+        <%= link_to_destroy sm_icon_tag('actions/destroy-black')   , admin_list_path(list)             %>
+        <%= link_to         sm_icon_tag('actions/create-black')    , new_admin_list_category_path(list), class: active_class(category_active, :new) %>
     <% end %>
 
     <% unless category.nil? || category.id.nil? %>
         <span class="title"><small>Category<br>&lsquo;<%= category.name %>&rsquo;</small></span>
-        <%= link_to         image_tag('admin/icons/actions/show-black-sm.png')      , admin_list_category_path(category)            , class: active_class(category_active, :show) %>
-        <%= link_to         image_tag('admin/icons/actions/edit-black-sm.png')      , edit_admin_list_category_path(category)       , class: active_class(category_active, :edit) %>
-        <%= link_to_destroy image_tag('admin/icons/actions/destroy-black-sm.png')   , admin_list_category_path(category)            %>
-        <%= link_to         image_tag('admin/icons/actions/create-black-sm.png')    , new_admin_list_category_listing_path(category), class: active_class(listing_active, :new) %>
+        <%= link_to         sm_icon_tag('actions/show-black')      , admin_list_category_path(category)            , class: active_class(category_active, :show) %>
+        <%= link_to         sm_icon_tag('actions/edit-black')      , edit_admin_list_category_path(category)       , class: active_class(category_active, :edit) %>
+        <%= link_to_destroy sm_icon_tag('actions/destroy-black')   , admin_list_category_path(category)            %>
+        <%= link_to         sm_icon_tag('actions/create-black')    , new_admin_list_category_listing_path(category), class: active_class(listing_active, :new) %>
     <% end %>
 </section>

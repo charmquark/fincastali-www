@@ -1,6 +1,6 @@
 <%= render 'admin/lists/menu', list_active: :index %>
 <section>
-    <h1><%= image_tag 'admin/icons/list-black.png' %> Index of Lists</h1>
+    <h1><%= icon_tag 'actions/index-black' %> Index of Lists</h1>
 
     <table>
         <thead>
@@ -16,9 +16,9 @@
                     <td><%= list.tag %></td>
                     <td><%= list.short_description %></td>
                     <td class="actions">
-                        <%= link_to image_tag('admin/icons/actions/show-black-sm.png'), admin_list_path(list) %>
-                        <%= link_to image_tag('admin/icons/actions/edit-black-sm.png'), edit_admin_list_path(list) %>
-                        <%= link_to image_tag('admin/icons/actions/destroy-black-sm.png'), '#' %>
+                        <%= link_to sm_icon_tag('actions/show-black'), admin_list_path(list) %>
+                        <%= link_to sm_icon_tag('actions/edit-black'), edit_admin_list_path(list) %>
+                        <%= link_to sm_icon_tag('actions/destroy-black'), '#' %>
                     </td>
                 </tr>
             <% end %>
@@ -26,7 +26,7 @@
                 <td></td><td></td><td></td>
                 <td class="actions">
                     <%= link_to new_admin_list_path do %>
-                        <%= image_tag('admin/icons/actions/create-black.png') %> New List
+                        <%= icon_tag 'actions/create-black' %> New List
                     <% end %>
                 </td>
             </tr>
