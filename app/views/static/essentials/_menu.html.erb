@@ -1,8 +1,0 @@
-<% category = HeathenryCollection.instance[:essentials] %>
-<aside id="sidebar-menu">
-    <div class="title"><%= category.display -%></div>
-
-    <% category.articles.each do |article| -%>
-        <%= heathenry_menu_link_to  :essentials, article.key, article.title -%>
-    <% end -%>
-</aside>
