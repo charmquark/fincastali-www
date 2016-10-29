@@ -4,6 +4,17 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore system things.
+/.directory
+
+# Ignore dotenv files.
+.env
+.env.*
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
 # Ignore bundler config.
 /.bundle
 
@@ -13,5 +24,17 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploads.
+public/system/*
+
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore local editor files
+*.kate-swp
+*.sublime-project
+*.sublime-workspace
+/.vscode
+
+# Ignore the revision file, which will be generated on deploy
+REVISION
