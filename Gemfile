@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Slim for most templates, rather than Erubis
 gem 'slim-rails'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,6 +48,15 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+# Use capistrano for deployment
+group :development do
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
