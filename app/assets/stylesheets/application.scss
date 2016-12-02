@@ -1,0 +1,27 @@
+$em-base: 16px;
+@import 'bourbon';
+
+%--hidden { display: none; }
+
+*,
+*:before,
+*:after {
+  @include prefixer(box-sizing, border-box, moz webkit spec);
+  @include prefixer(overflow-scrolling, touch, webkit);
+
+  @include prefixer(font-smoothing, antialiased, webkit);
+  @include prefixer(osx-font-smoothing, auto, moz);
+  font-smooth: always;
+}
+
+body {
+  font-size: $em-base;
+  min-height: 100vh;
+}
+
+iframe { border-width: 0; }
+
+.--hidden { @extend %--hidden; }
+
+@import 'app/colors';
+@import 'app/blocks';

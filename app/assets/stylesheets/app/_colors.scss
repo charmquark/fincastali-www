@@ -1,0 +1,46 @@
+%--fg-black {
+  color: rgba(#000, 0.87);
+
+  .--fg-secondary { color: rgba(#000, 0.54); }
+
+  .--fg-disabled,
+  .--fg-hint,
+  .--fg-icon { color: rgba(#000, 0.38); }
+
+  .--fg-divider { color: rgba(#000, 0.12); }
+}
+
+%--fg-white {
+  color: rgba(#fff, 1.0);
+
+  .--fg-secondary { color: rgba(#fff, 0.7); }
+
+  .--fg-disabled,
+  .--fg-hint,
+  .--fg-icon { color: rgba(#fff, 0.5); }
+
+  .--fg-divider { color: rgba(#fff, 0.12); }
+}
+
+%--bg-gray-900 {
+  background-color: #212121;
+  @extend %--fg-white;
+}
+
+%--bg-indigo-500 {
+  background-color: #3F51B5;
+  @extend %--fg-white;
+}
+
+%--bg-white {
+  background-color: #fff;
+  @extend %--fg-black;
+}
+
+.--fg-black { @extend %--fg-black; }
+.--fg-white { @extend %--fg-white; }
+
+.--bg-gray-900   { @extend %--bg-gray-900;   }
+.--bg-indigo-500 { @extend %--bg-indigo-500; }
+.--bg-white      { @extend %--bg-white;      }
+

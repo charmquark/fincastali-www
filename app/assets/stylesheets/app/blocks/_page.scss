@@ -1,0 +1,50 @@
+.page {
+  @extend %--bg-white;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  z-index: 0;
+
+  &__banner {
+    @extend %--bg-indigo-500;
+    @include position(fixed, -4rem null null 0);
+    @include size(100% 4rem);
+    @include transition(left 0.4s ease, top 0.4s ease);
+    z-index: 20;
+  }
+
+  &__body {
+    @extend %--bg-white;
+    @include position(relative, null null null 0);
+    @include transition(left 0.4s ease, padding-top 0.4s ease);
+    flex: 1 1 85%;
+    min-width: 600px;
+    padding-top: 0;
+    z-index: 10;
+  }
+
+  &__main { margin: 1rem; }
+
+  &__sidebar {
+    @extend %--bg-gray-900;
+    @include position(relative, null null null 0);
+    flex: 1 0 15%;
+    min-width: 200px;
+    z-index: 0;
+  }
+
+  @media screen and (max-width: 999px) {
+    &__banner { top: 0; }
+
+    &__body {
+      flex: 1 0 100%;
+      left: -200px;
+      padding-top: 5rem;
+    }
+
+    &--show-sidebar {
+      .page__banner { left: 200px; }
+      .page__body { left: 0; }
+    }
+  }
+}

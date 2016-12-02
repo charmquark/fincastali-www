@@ -22,4 +22,15 @@ html.no-js lang="en"
                              'data-turbolinks-track': 'reload'
 
   body data-controller=controller_name data-action=action_name
-    = yield
+    .page
+      .page__banner
+        .page__menu-toggle menu
+
+      header.page__sidebar
+        .page__sidebar__title Sidebar
+
+      .page__body
+        main.page__main
+          = yield
+        
+        footer.page__footer
