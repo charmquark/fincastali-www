@@ -1,0 +1,16 @@
+$icon-font-family: "Material Icons";
+$icon-font-weight: 400;
+$icon-sizes: (small: 1em, medium: 1.5em, large: 2em);
+
+@import url("https://fonts.googleapis.com/icon?family=#{$icon-font-family}");
+
+@mixin icon($liga, $size: medium) {
+  @include font-feature-settings('liga' 1, 'clig' 1, 'dlig' 1);
+  @include size(map-get($icon-sizes, $size));
+  content: $liga;
+  display: inline-block;
+  font-family: $icon-font-family;
+  font-size: map-get($icon-sizes, $size);
+  font-weight: $icon-font-weight;
+  vertical-align: middle;
+}

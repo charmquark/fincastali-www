@@ -22,14 +22,15 @@ html.no-js lang="en"
                              'data-turbolinks-track': 'reload'
 
   body data-controller=controller_name data-action=action_name
-    .page
-      .page__banner
-        .page__menu-toggle menu
+    .page.--bg-white
+      .page__banner.--bg-indigo-500
+        button.page__menu-toggle
+          span toggle menu
 
-      header.page__sidebar
-        .page__sidebar__title Sidebar
+      header.page__sidebar.--bg-gray-800
+        .page__sidebar__heading.--bg-gray-900 Sidebar
 
-      .page__body
+      .page__body.--bg-white
         main.page__main
           = yield
         

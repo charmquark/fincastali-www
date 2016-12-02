@@ -1,36 +1,95 @@
+$page--transition--duration: 0.6s;
+
 .page {
-  @extend %--bg-white;
   display: flex;
   flex-direction: row;
   min-height: 100vh;
   z-index: 0;
 
   &__banner {
-    @extend %--bg-indigo-500;
     @include position(fixed, -4rem null null 0);
     @include size(100% 4rem);
-    @include transition(left 0.4s ease, top 0.4s ease);
+    @include transition(left $page--transition--duration ease,
+                        top  $page--transition--duration ease);
+    border-bottom: 1px rgba(#fff, 0.12) solid;
+    line-height: 4rem;
     z-index: 20;
   }
 
   &__body {
-    @extend %--bg-white;
     @include position(relative, null null null 0);
-    @include transition(left 0.4s ease, padding-top 0.4s ease);
+    @include transition(left        $page--transition--duration ease,
+                        padding-top $page--transition--duration ease);
     flex: 1 1 85%;
-    min-width: 600px;
+    min-width: 300px;
     padding-top: 0;
     z-index: 10;
   }
 
-  &__main { margin: 1rem; }
+  &__menu-toggle {
+    @include appearance(none);
+    @include size(2rem);
+    @include transition(transform $page--transition--duration);
+    background: transparent;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0;
+    overflow: hidden;
+    margin: 1rem;
+    padding: 0;
+    position: relative;
+    text-indent: -9999px;
+
+    &:focus { outline: none; }
+
+    span {
+      @include position(absolute, 0.9rem 0 null 0);
+      @include size(2rem 0.2rem);
+      @include transition(background-color 0s 0.4s,
+                          transform        $page--transition--duration);
+      background-color: #fff;
+      display: block;
+
+      &:before,
+      &:after {
+        @include position(absolute, null 0 null null);
+        @include size(100% 0.2rem);
+        @include transition-delay(0.3s, 0s);
+        @include transition-duration(0.3s);
+        background-color: #fff;
+        content: "";
+        display: block;
+      }
+
+      &:before {
+        @include transition-property(top, transform);
+        top: -0.6rem;
+      }
+
+      &:after {
+        @include transition-property(bottom, transform);
+        bottom: -0.6rem;
+      }
+    }
+  }
 
   &__sidebar {
-    @extend %--bg-gray-900;
     @include position(relative, null null null 0);
     flex: 1 0 15%;
     min-width: 200px;
+    padding-top: 5rem;
     z-index: 0;
+
+    &__heading {
+      @include position(fixed, 0 null 0 0);
+      @include size(100% 4rem);
+      border-bottom: 1px rgba(#fff, 0.12) solid;
+      line-height: 2rem;
+      padding: 1rem;
+    }
   }
 
   @media screen and (max-width: 999px) {
@@ -44,7 +103,32 @@
 
     &--show-sidebar {
       .page__banner { left: 200px; }
+
       .page__body { left: 0; }
+
+      .page__menu-toggle {
+        transform: translateX(-4rem);
+
+        span {
+          background-color: transparent;
+          // transform: rotateZ(180deg);
+
+          &:before,
+          &:after {
+            @include transition-delay(0s, 0.3s);
+          }
+
+          &:before {
+            top: 0;
+            transform: rotate(45deg);
+          }
+
+          &:after {
+            bottom: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
     }
   }
 }

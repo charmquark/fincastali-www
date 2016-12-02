@@ -22,6 +22,16 @@
   .--fg-divider { color: rgba(#fff, 0.12); }
 }
 
+%--bg-gray-500 {
+  background-color: #9E9E9E;
+  @extend %--fg-black;
+}
+
+%--bg-gray-800 {
+  background-color: #424242;
+  @extend %--fg-white;
+}
+
 %--bg-gray-900 {
   background-color: #212121;
   @extend %--fg-white;
@@ -29,6 +39,11 @@
 
 %--bg-indigo-500 {
   background-color: #3F51B5;
+  @extend %--fg-white;
+}
+
+%--bg-indigo-900 {
+  background-color: #1A237E;
   @extend %--fg-white;
 }
 
@@ -40,7 +55,12 @@
 .--fg-black { @extend %--fg-black; }
 .--fg-white { @extend %--fg-white; }
 
-.--bg-gray-900   { @extend %--bg-gray-900;   }
+.--bg-gray-500   { @extend %--bg-gray-500; }
+.--bg-gray-800   { @extend %--bg-gray-800; }
+.--bg-gray-900   { @extend %--bg-gray-900; }
+
 .--bg-indigo-500 { @extend %--bg-indigo-500; }
-.--bg-white      { @extend %--bg-white;      }
+.--bg-indigo-900 { @extend %--bg-indigo-900; }
+
+.--bg-white      { @extend %--bg-white; }
 

@@ -24,4 +24,6 @@ iframe { border-width: 0; }
 .--hidden { @extend %--hidden; }
 
 @import 'app/colors';
+@import 'app/icons';
+
 @import 'app/blocks';
