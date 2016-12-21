@@ -37,7 +37,7 @@ body {
 
 h1,
 h2,
-h3 { @include heading--font; }
+h3 { @include heading--font(true); }
 
 iframe { border-width: 0; }
 
