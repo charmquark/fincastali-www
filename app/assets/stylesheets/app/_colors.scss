@@ -1,4 +1,16 @@
-%--fg-black {
+$black: #000;
+$white: #fff;
+
+$fg-black-alpha: 0.87;
+$fg-white-alpha: 1.0;
+$fg-black: rgba($black, $fg-black-alpha);
+$fg-white: rgba($white, $fg-white-alpha);
+
+$fg-divider-alpha: 0.12;
+$fg-black-divider: rgba($black, $fg-divider-alpha);
+$fg-white-divider: rgba($white, $fg-divider-alpha);
+
+@mixin fg-black {
   color: rgba(#000, 0.87);
 
   a,
@@ -8,7 +20,7 @@
   .--fg-hint,
   .--fg-icon { color: rgba(#000, 0.38); }
 
-  .--fg-divider { color: rgba(#000, 0.12); }
+  .--fg-divider { color: $fg-black-divider; }
 
   a:hover {
     border-bottom-color: rgba(#000, 0.87);
@@ -16,7 +28,7 @@
   }
 }
 
-%--fg-white {
+@mixin fg-white {
   color: rgba(#fff, 1.0);
 
   a,
@@ -26,13 +38,17 @@
   .--fg-hint,
   .--fg-icon { color: rgba(#fff, 0.5); }
 
-  .--fg-divider { color: rgba(#fff, 0.12); }
+  .--fg-divider { color: $fg-white-divider }
 
   a:hover {
     border-bottom-color: rgba(#fff, 1.0);
     color: rgba(#fff, 1.0);
   }
 }
+
+%--fg-black { @include fg-black; }
+
+%--fg-white { @include fg-white; }
 
 %--bg-gray-500 {
   background-color: #9E9E9E;
@@ -75,4 +91,3 @@
 .--bg-indigo-900 { @extend %--bg-indigo-900; }
 
 .--bg-white      { @extend %--bg-white; }
-

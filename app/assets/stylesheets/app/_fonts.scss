@@ -1,0 +1,17 @@
+$common--font-family: 'Roboto';
+$common--font-weight: 400;
+$common--font-weight--bold: 700;
+
+$heading--font-family: 'Caveat';
+$heading--font-weight: 400;
+$heading--font-weight--bold: 700;
+
+@mixin common--font($_bold: false) {
+  font-family: $common--font-family;
+  font-weight: if($_bold, $common--font-weight--bold, $common--font-weight);
+}
+
+@mixin heading--font($_bold: false) {
+  font-family: $heading--font-family;
+  font-weight: if($_bold, $heading--font-weight--bold, $heading--font-weight);
+}

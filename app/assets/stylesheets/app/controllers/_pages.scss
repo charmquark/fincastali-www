@@ -1,0 +1,43 @@
+body[data-controller=pages] {
+  &[data-action=home] {
+    h1 {
+      @include heading--font(true);
+      font-size: 90px;
+      margin: 0;
+      text-shadow: 0 0 0.5em $fg-black;
+
+      @media screen and (max-width: 710px) { font-size: 70px; }
+      @media screen and (max-width: 550px) { font-size: 55px; }
+      @media screen and (max-width: 470px) { font-size: 40px; }
+    }
+
+    .header {
+      @include align-items(center);
+      background-image: image-url('pages/home/header.jpg');
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      height: 100vh;
+
+      &__content {
+        @include flex(1 0 100%);
+        @include fg-white;
+        line-height: 1;
+        text-align: center;
+      }
+
+      &__subheading {
+        @include heading--font;
+        font-size: 60px;
+        text-shadow: 0 0 0.5em $fg-black;
+
+        @media screen and (max-width: 710px) { font-size: 45px; }
+        @media screen and (max-width: 550px) { font-size: 40px; }
+        @media screen and (max-width: 470px) { font-size: 30px; }
+      }
+    }
+
+    .page__body { padding-top: 0; }
+  }
+}

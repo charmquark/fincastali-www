@@ -3,6 +3,12 @@
 
 @import 'lib';
 
+@import 'app/breakpoints';
+@import 'app/colors';
+@import 'app/fonts';
+@import 'app/icons';
+@import 'app/mixins';
+
 %--hidden { display: none; }
 
 *,
@@ -24,17 +30,19 @@ a {
 }
 
 body {
+  @include common--font;
   font-size: $em-base;
   min-height: 100vh;
 }
+
+h1,
+h2,
+h3 { @include heading--font; }
 
 iframe { border-width: 0; }
 
 .--hidden { @extend %--hidden; }
 
-@import 'app/breakpoints';
-@import 'app/colors';
-@import 'app/icons';
-@import 'app/mixins';
-
 @import 'app/blocks';
+
+@import 'app/controllers';
