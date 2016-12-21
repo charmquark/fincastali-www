@@ -1,0 +1,22 @@
+.row {
+  @include align-items(stretch);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+  display: flex;
+  width: 100%;
+
+  &__column {
+    @include flex(1 0);
+    margin: 0 $common--margin;
+    min-width: 300px;
+    position: relative;
+  }
+}
+
+// @each $n in (2 3 4 5) {
+//   .row--#{$n}-columns {
+//     $_basis: 100% / $n;
+//     .row__column { @include flex-basis($_basis); }
+//   }
+// }

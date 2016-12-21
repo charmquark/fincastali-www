@@ -1,0 +1,18 @@
+.main {
+  flex: 1 0;
+  position: relative;
+
+  p {
+    line-height: 1.5;
+    margin: 1rem 0;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  section,
+  .pseudo-section {
+    margin: 0;
+    padding: $common--margin;
+  }
+}

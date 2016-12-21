@@ -1,0 +1,10 @@
+@function get-breakpoint($_ref-component, $_key) {
+  $_bp-map: map-get-safe($breakpoints, $_ref-component, '$breakpoints');
+  $_bp:     map-get-safe($_bp-map, $_key, "$breakpoints(#{$_ref-component})");
+  @return $_bp;
+}
+
+@mixin breakpoint($_ref-component, $_key) {
+  $_bp: get-breakpoint($_ref-component, $_key);
+  @media #{$_bp} { @content; }
+}

@@ -1,6 +1,7 @@
 %--fg-black {
   color: rgba(#000, 0.87);
 
+  a,
   .--fg-secondary { color: rgba(#000, 0.54); }
 
   .--fg-disabled,
@@ -8,11 +9,17 @@
   .--fg-icon { color: rgba(#000, 0.38); }
 
   .--fg-divider { color: rgba(#000, 0.12); }
+
+  a:hover {
+    border-bottom-color: rgba(#000, 0.87);
+    color: rgba(#000, 0.87);
+  }
 }
 
 %--fg-white {
   color: rgba(#fff, 1.0);
 
+  a,
   .--fg-secondary { color: rgba(#fff, 0.7); }
 
   .--fg-disabled,
@@ -20,6 +27,11 @@
   .--fg-icon { color: rgba(#fff, 0.5); }
 
   .--fg-divider { color: rgba(#fff, 0.12); }
+
+  a:hover {
+    border-bottom-color: rgba(#fff, 1.0);
+    color: rgba(#fff, 1.0);
+  }
 }
 
 %--bg-gray-500 {

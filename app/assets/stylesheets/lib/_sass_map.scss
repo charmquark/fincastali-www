@@ -1,0 +1,13 @@
+@function is-map($_value) {
+	@return type-of($_value) == 'map';
+}
+
+@function map-get-safe($_map, $_key, $_display: null) {
+	@if not is-map($_map) {
+		@error "First argument to map-get-safe() is not a map";
+	}
+	@if map-has-key($_map, $_key) {
+		@return map-get($_map, $_key);
+	}
+	@error "Unknown `#{$_key}` in " + if($_display == null, "map", "#{$_display}");
+}

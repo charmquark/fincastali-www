@@ -1,0 +1,13 @@
+/* Bourbon settings */
+$em-base: 16px;
+
+/* App settings */
+$breakpoints: (
+  page: (
+    hidden_sidebar: 'screen and (max-width: 999px)'
+  )
+);
+
+$common--margin: 1rem;
+$common--transition-duration: 0.6s;
+$common--transition-timing-function: ease;

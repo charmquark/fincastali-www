@@ -1,5 +1,7 @@
-$em-base: 16px;
+@import 'app/settings';
 @import 'bourbon';
+
+@import 'lib';
 
 %--hidden { display: none; }
 
@@ -14,6 +16,13 @@ $em-base: 16px;
   font-smooth: always;
 }
 
+a {
+  @include transition(border-bottom-color 0.2s,
+                      color 0.2s);
+  border-bottom: 1px transparent dashed;
+  text-decoration: none;
+}
+
 body {
   font-size: $em-base;
   min-height: 100vh;
@@ -23,7 +32,9 @@ iframe { border-width: 0; }
 
 .--hidden { @extend %--hidden; }
 
+@import 'app/breakpoints';
 @import 'app/colors';
 @import 'app/icons';
+@import 'app/mixins';
 
 @import 'app/blocks';

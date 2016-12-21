@@ -1,0 +1,20 @@
+@mixin common--margin {
+  margin: $common--margin;
+}
+
+@mixin common--transition-duration {
+  @include transition-duration($common--transition-duration);
+}
+
+@mixin common--transition-timing-function {
+  @include transition-timing-function($common--transition-timing-function);
+}
+
+@mixin common--transition($_properties...) {
+  $_params: ();
+  @each $_prop in $_properties {
+    $_val: $_prop $common--transition-duration $common--transition-timing-function;
+    $_params: append($_params, $_val, comma);
+  }
+  @include transition($_params...);
+}

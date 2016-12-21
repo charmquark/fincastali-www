@@ -1,0 +1,12 @@
+.masthead {
+  @include common--transition(left, top);
+  @include position(fixed, -4rem null null 0);
+  @include size(100% 4rem);
+  border-bottom: 1px rgba(#fff, 0.12) solid;
+  line-height: 4rem;
+  z-index: 20;
+
+  @include breakpoint(page, hidden_sidebar) { top: 0; }
+
+  .page--show-sidebar & { left: 200px; }
+}
