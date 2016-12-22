@@ -20,6 +20,9 @@ html lang="en"
 
   body data-controller=controller_name data-action=action_name
     .page
-      = yield
+      = render 'admin/blocks/sidebar'
+
+      .page__content
+        = yield
 
     = javascript_include_tag 'admin'

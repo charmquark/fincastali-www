@@ -1,0 +1,9 @@
+.page {
+  // @include align-items(stretch);
+  @include flex-direction(row);
+  display: flex;
+
+  &__content {
+    @include flex(1 0);
+  }
+}

@@ -54,6 +54,16 @@ $fg-white-divider: rgba($white, $fg-divider-alpha);
 
 %--fg-white { @include fg-white; }
 
+%--bg-blue-gray-500 {
+  background-color: #607d8b;
+  @extend %--fg-white;
+}
+
+%--bg-blue-gray-700 {
+  background-color: #455A64;
+  @extend %--fg-white;
+}
+
 %--bg-gray-100 {
   background-color: #F5F5F5;
   @extend %--fg-black;
@@ -96,6 +106,9 @@ $fg-white-divider: rgba($white, $fg-divider-alpha);
 
 .--fg-black { @extend %--fg-black; }
 .--fg-white { @extend %--fg-white; }
+
+.--bg-blue-gray-500 { @extend %--bg-blue-gray-500; }
+.--bg-blue-gray-700 { @extend %--bg-blue-gray-700; }
 
 .--bg-gray-500   { @extend %--bg-gray-500; }
 .--bg-gray-800   { @extend %--bg-gray-800; }

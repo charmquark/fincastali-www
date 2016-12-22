@@ -3,6 +3,9 @@
 
 @import 'lib';
 
+@import 'app/colors';
+@import 'app/fonts';
+
 *,
 *:before,
 *:after {
@@ -14,6 +17,28 @@
   font-smooth: always;
 }
 
+a {
+  @include transition(background-color 0.2s,
+                      border-bottom-color 0.2s,
+                      border-bottom-style 0.2s
+                      color 0.2s);
+  background-color: transparent;
+  border-bottom: 1px transparent dashed;
+  text-decoration: none;
+
+  &:hover { border-bottom-style: solid; }
+}
+
 body {
+  @include common--font;
   font-size: $em-base;
 }
+
+h1,
+h2,
+h3 {
+  @include heading--font;
+}
+
+
+@import 'admin/blocks';
