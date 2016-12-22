@@ -13,7 +13,15 @@ $fg-white-divider: rgba($white, $fg-divider-alpha);
 @mixin fg-black {
   color: rgba(#000, 0.87);
 
-  a,
+  a {
+    border-bottom-color: rgba(#00c853, 0.87);
+    color: rgba(#00c853, 0.87); // green A200
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+
+    &:hover { background-color: rgba($fg-black, $fg-divider-alpha); }
+  }
+
   .--fg-secondary { color: rgba(#000, 0.54); }
 
   .--fg-disabled,
@@ -21,17 +29,18 @@ $fg-white-divider: rgba($white, $fg-divider-alpha);
   .--fg-icon { color: rgba(#000, 0.38); }
 
   .--fg-divider { color: $fg-black-divider; }
-
-  a:hover {
-    border-bottom-color: rgba(#000, 0.87);
-    color: rgba(#000, 0.87);
-  }
 }
 
 @mixin fg-white {
   color: rgba(#fff, 1.0);
 
-  a,
+  a {
+    border-bottom-color: rgba(#b9f6ca, 1.0);
+    color: rgba(#b9f6ca, 1.0); // green A100
+
+    &:hover { background-color: rgba($fg-white, $fg-divider-alpha); }
+  }
+
   .--fg-secondary { color: rgba(#fff, 0.7); }
 
   .--fg-disabled,
@@ -39,16 +48,21 @@ $fg-white-divider: rgba($white, $fg-divider-alpha);
   .--fg-icon { color: rgba(#fff, 0.5); }
 
   .--fg-divider { color: $fg-white-divider }
-
-  a:hover {
-    border-bottom-color: rgba(#fff, 1.0);
-    color: rgba(#fff, 1.0);
-  }
 }
 
 %--fg-black { @include fg-black; }
 
 %--fg-white { @include fg-white; }
+
+%--bg-gray-100 {
+  background-color: #F5F5F5;
+  @extend %--fg-black;
+}
+
+%--bg-gray-200 {
+  background-color: #EEEEEE;
+  @extend %--fg-black;
+}
 
 %--bg-gray-500 {
   background-color: #9E9E9E;

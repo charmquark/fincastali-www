@@ -1,8 +1,9 @@
 body[data-controller=pages] {
   &[data-action=home] {
     h1 {
-      background: rgba($fg-black, 0.6);
-      border: 2px $fg-white solid;
+      background: rgba(#1A237E, 0.4);
+      border: 2px #E8EAF6 solid;
+      color: #E8EAF6;
       display: inline-block;
       font-size: 90px;
       margin: 0;
@@ -15,6 +16,7 @@ body[data-controller=pages] {
 
     .header {
       @include align-items(center);
+      background-attachment: fixed;
       background-image: image-url('pages/home/header.jpg');
       background-position: left center;
       background-repeat: no-repeat;

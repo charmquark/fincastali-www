@@ -6,19 +6,29 @@ header.header
 main.main
   div.pseudo-section
     p
-      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis 
-      | aliquet sem, ut vestibulum metus tincidunt eget. Vestibulum accumsan 
-      | pellentesque erat, mollis dictum massa varius vitae. Suspendisse potenti. 
-      | In efficitur fringilla dolor, vitae ullamcorper ante sagittis at. Etiam 
-      | eleifend orci ac egestas scelerisque. Vestibulum lacinia dolor eu tempus 
-      | aliquam. Quisque id bibendum massa, eu auctor sem. Cras tellus quam, 
-      | luctus vitae dolor faucibus, tincidunt vehicula velit. Vestibulum pretium 
-      | ipsum tellus, non semper metus ornare et. Donec rutrum finibus mauris sed 
-      | tincidunt. Fusce nulla justo, consectetur sed sodales id, commodo vel 
-      | lorem. Maecenas sagittis orci vitae mauris dapibus condimentum. Fusce 
-      | fringilla velit vitae hendrerit semper. Nullam massa libero, tincidunt 
-      | sed enim id, lobortis tristique lectus. Mauris varius neque ac tortor 
-      | iaculis porta.
+      | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis 
+      | sagittis aliquet sem, ut vestibulum metus tincidunt eget. Vestibulum 
+      | accumsan pellentesque erat, mollis dictum massa varius vitae. 
+      | Suspendisse potenti. In efficitur fringilla dolor, vitae ullamcorper 
+      | ante sagittis at. Etiam eleifend orci ac egestas scelerisque. 
+      | Vestibulum lacinia dolor eu tempus aliquam. Quisque id bibendum 
+      | massa, eu auctor sem. Cras tellus quam, luctus vitae dolor faucibus, 
+      | tincidunt vehicula velit. Vestibulum pretium ipsum tellus, non semper 
+      | metus ornare et. Donec rutrum finibus mauris sed tincidunt. Fusce 
+      | nulla justo, consectetur sed sodales id, commodo vel lorem. Maecenas 
+      | sagittis orci vitae mauris dapibus condimentum. Fusce fringilla velit 
+      | vitae hendrerit semper. Nullam massa libero, tincidunt sed enim id, 
+      | lobortis tristique lectus. Mauris varius neque ac tortor iaculis 
+      | porta.
+
+    p
+      | Nullam sollicitudin nulla leo, ut semper augue tincidunt id. Fusce 
+      | vitae tortor sit amet felis laoreet pulvinar. Nunc quis vulputate 
+      | ipsum. Quisque non tellus nec urna eleifend condimentum eget eu 
+      | ligula. Quisque eu diam felis. Cras eget diam nulla. Donec dapibus 
+      | lacinia metus non semper. Lorem ipsum dolor sit amet, consectetur 
+      | adipiscing elit. Cum sociis natoque penatibus et magnis dis 
+      | parturient montes, nascetur ridiculus mus.
 
   .row
     section.row__column
@@ -58,7 +68,9 @@ main.main
         | netus et malesuada fames ac turpis egestas. Integer at quam eu eros 
         | blandit sagittis. Morbi suscipit est id tortor lacinia, quis interdum 
         | erat elementum. Ut condimentum fringilla nisl, eu eleifend eros lacinia 
-        | eu. Donec et rutrum ex, eget consectetur quam. Aenean a sodales enim. In 
+        | eu. Donec et rutrum ex, 
+        = link_to 'eget consectetur quam', ''
+        | . Aenean a sodales enim. In 
         | scelerisque orci tristique, pellentesque dui id, sollicitudin odio. Nulla 
         | accumsan nulla eu tortor egestas lobortis. Duis vel neque sit amet nibh 
         | condimentum vulputate eu ac tellus. Aliquam porta finibus mi.
@@ -74,3 +86,5 @@ main.main
         | risus. Nulla tincidunt aliquam nulla, sed gravida lorem fermentum ac. 
         | Nunc euismod malesuada felis eu efficitur. Vivamus luctus ut elit quis 
         | consequat. Cras hendrerit sem magna, et euismod elit molestie ac.
+
+= render 'blocks/image_gap', gap_image: image_path('pages/home/gap-1.jpg')
