@@ -1,0 +1,19 @@
+@import 'admin/settings';
+@import 'bourbon';
+
+@import 'lib';
+
+*,
+*:before,
+*:after {
+  @include prefixer(box-sizing, border-box, moz webkit spec);
+  @include prefixer(overflow-scrolling, touch, webkit);
+
+  @include prefixer(font-smoothing, antialiased, webkit);
+  @include prefixer(osx-font-smoothing, auto, moz);
+  font-smooth: always;
+}
+
+body {
+  font-size: $em-base;
+}

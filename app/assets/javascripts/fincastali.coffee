@@ -51,5 +51,5 @@ Fincastali.$doc.on 'turbolinks:load', ->
   actionName     = $body.data 'action'
   Fincastali.preInit()
   Fincastali.init controllerName, actionName
-  Fincastali.postInit
+  Fincastali.postInit()
   console.log '\n--------------------------------------------------\n'

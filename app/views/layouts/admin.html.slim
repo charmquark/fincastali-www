@@ -1,0 +1,25 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    = csrf_meta_tags
+
+    title
+      = content_for :page_title
+      | Admin | Fincastali Hearth
+
+    = stylesheet_link_tag FincastaliWww::CdnUrls::NORMALIZE,
+                          media:                   'all'
+    = stylesheet_link_tag FincastaliWww::CdnUrls::FONTS_CSS,
+                          media:                   'all'
+    = stylesheet_link_tag 'admin',
+                          media:                   'all'
+
+  body data-controller=controller_name data-action=action_name
+    .page
+      = yield
+
+    = javascript_include_tag 'admin'
