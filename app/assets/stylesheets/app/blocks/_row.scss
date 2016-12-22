@@ -13,10 +13,3 @@
     position: relative;
   }
 }
-
-// @each $n in (2 3 4 5) {
-//   .row--#{$n}-columns {
-//     $_basis: 100% / $n;
-//     .row__column { @include flex-basis($_basis); }
-//   }
-// }

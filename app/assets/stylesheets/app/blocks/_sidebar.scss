@@ -1,9 +1,9 @@
-$sidebar--min-width: 200px;
-
 .sidebar {
   @include position(relative, null null null 0);
   flex: 1 0 15%;
-  min-width: $sidebar--min-width;
+  max-width: $sidebar--width;
+  min-width: $sidebar--width;
+  width: $sidebar--width;
   padding-top: 5rem;
   z-index: 0;
 

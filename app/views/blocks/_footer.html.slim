@@ -1,7 +1,17 @@
 footer.footer.--bg-indigo-500
-  .footer__copyright
-    | Copyright &copy; 2016 Fincastali Hearth. All Rights Reserved. Fincastali 
-    | Hearth is an unincorporated nonprofit association in accordance with the 
-    = link_to 'Kentucky Uniform Unincorporated Nonprofit Association Act',
-              'http://www.lrc.ky.gov/statutes/chapter.aspx?id=43992'
-    | .
+  .footer__info
+    .footer__contact
+      .footer__contact__item Email: fincastali@gmail.com
+      .footer__contact__item Phone: 555-555-1234
+
+    p.footer__copyright
+      | Copyright &copy; 2016 Fincastali Hearth. All Rights Reserved. 
+      | Fincastali Hearth is an unincorporated nonprofit association in 
+      | accordance with the 
+      = link_to 'Kentucky Uniform Unincorporated Nonprofit Association Act',
+                'http://www.lrc.ky.gov/statutes/chapter.aspx?id=43992'
+      | .
+
+  .footer__nav
+    .nav.nav--footer
+      = render 'blocks/nav_body'
