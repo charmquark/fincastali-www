@@ -44,5 +44,14 @@ body[data-controller=pages] {
     }
 
     .page__body { padding-top: 0; }
+
+    .page--home__about-us {
+      columns: 2;
+      column-gap: $common--margin;
+
+      @include breakpoint(page, hidden_sidebar) {
+        columns: 1;
+      }
+    }
   }
 }

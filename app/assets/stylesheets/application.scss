@@ -59,6 +59,8 @@ iframe { border-width: 0; }
 
 .--hidden { @extend %--hidden; }
 
+.--margin { margin: $common--margin; }
+
 @import 'app/blocks';
 
 @import 'app/controllers';
