@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore system things.
-/.directory
+.directory
 
 # Ignore dotenv files.
 .env
