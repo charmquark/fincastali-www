@@ -22,27 +22,27 @@
     @include position(absolute, 0.9rem 0 null 0);
     @include size(2rem 0.2rem);
     @include transition(background-color 0s 0.4s);
-    background-color: #fff;
+    background-color: $fg-white;
     display: block;
 
     &:before,
     &:after {
       @include position(absolute, null 0 null null);
       @include size(100% 0.2rem);
-      @include transition-delay(0.3s, 0s);
+      @include transition-delay(0s, 0.3s, 0s);
       @include transition-duration(0.3s);
-      background-color: #fff;
+      background-color: $fg-white;
       content: "";
       display: block;
     }
 
     &:before {
-      @include transition-property(top, transform);
+      @include transition-property(background-color, top, transform);
       top: -0.6rem;
     }
 
     &:after {
-      @include transition-property(bottom, transform);
+      @include transition-property(background-color, bottom, transform);
       bottom: -0.6rem;
     }
   }
@@ -54,7 +54,10 @@
       background-color: transparent;
 
       &:before,
-      &:after { @include transition-delay(0s, 0.3s); }
+      &:after {
+        @include transition-delay(0s, 0s, 0.3s);
+        background-color: $fg-black;
+      }
 
       &:before {
         top: 0;

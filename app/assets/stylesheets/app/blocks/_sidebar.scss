@@ -1,17 +1,19 @@
 .sidebar {
+  @include bg-pale;
   @include position(relative, null null null 0);
   flex: 1 0 15%;
   max-width: $sidebar--width;
   min-width: $sidebar--width;
   width: $sidebar--width;
-  padding-top: 5rem;
+  padding-top: 4rem;
   z-index: 0;
 
   &__heading {
+    // @include bg-pale-dark;
     @include position(fixed, 0 null 0 0);
     @include size(100% 4rem);
-    border-bottom: 1px rgba(#fff, 0.12) solid;
-    line-height: 2rem;
-    padding: 1rem;
+    border-bottom: 1px $fg-black-divider solid;
+    line-height: 4rem;
+    padding: 0 1rem;
   }
 }

@@ -1,5 +1,5 @@
 .page {
-  // @include align-items(stretch);
+  @include bg-white;
   @include flex-direction(row);
   display: flex;
 

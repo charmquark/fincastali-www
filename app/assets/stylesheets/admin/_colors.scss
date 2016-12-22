@@ -1,0 +1,23 @@
+@import 'app/colors';
+
+// admin primary = blue grey
+$color-admin-primary: #607D8B; // 500; fg white
+$color-admin-primary-lite: #90A4AE; // 300; fg black
+$color-admin-primary-dark: #455A64; // 700; fg white
+
+// admin accent = amber
+$color-admin-accent: #FFD740; // A200; fg black
+$color-admin-accent-lite: #FFE57F; // A100; fg black
+$color-admin-accent-dark: #FFAB00; // A700; fg black
+
+@mixin bg-admin-primary {
+  @include fg-white;
+  background-color: $color-admin-primary;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-admin-accent;
+
+    &:hover { color: $color-admin-accent-lite; }
+  }
+}

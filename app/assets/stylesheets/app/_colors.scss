@@ -10,111 +10,142 @@ $fg-divider-alpha: 0.12;
 $fg-black-divider: rgba($black, $fg-divider-alpha);
 $fg-white-divider: rgba($white, $fg-divider-alpha);
 
+$fg-black-hint-alpha: 0.38;
+$fg-white-hint-alpha: 0.5;
+$fg-black-hint: rgba($black, $fg-black-hint-alpha);
+$fg-white-hint: rgba($white, $fg-white-hint-alpha);
+
 @mixin fg-black {
   color: rgba(#000, 0.87);
 
-  a {
-    border-bottom-color: rgba(#00c853, 0.87);
-    color: rgba(#00c853, 0.87); // green A200
-    padding-left: 0.25em;
-    padding-right: 0.25em;
+  .fg-secondary { color: rgba(#000, 0.54); }
 
-    &:hover { background-color: rgba($fg-black, $fg-divider-alpha); }
-  }
+  .fg-disabled,
+  .fg-hint,
+  .fg-icon { color: $fg-black-hint; }
 
-  .--fg-secondary { color: rgba(#000, 0.54); }
-
-  .--fg-disabled,
-  .--fg-hint,
-  .--fg-icon { color: rgba(#000, 0.38); }
-
-  .--fg-divider { color: $fg-black-divider; }
+  .fg-divider { color: $fg-black-divider; }
 }
 
 @mixin fg-white {
   color: rgba(#fff, 1.0);
 
+  .fg-secondary { color: rgba(#fff, 0.7); }
+
+  .fg-disabled,
+  .fg-hint,
+  .fg-icon { color: $fg-white-hint; }
+
+  .fg-divider { color: $fg-white-divider }
+}
+
+// primary = indigo
+$color-primary: #3F51B5; // 500; fg white
+$color-primary-lite: #7986CB; // 300; fg white
+$color-primary-dark: #303F9F; // 700; fg white
+
+// accent = green
+$color-accent: #69F0AE; // A200; fg black
+$color-accent-lite: #B9F6CA; // A100; fg black
+$color-accent-dark: #00C853; // A700; fg black
+
+@mixin bg-white {
+  @include fg-black;
+  background-color: $white;
+
   a {
-    border-bottom-color: rgba(#b9f6ca, 1.0);
-    color: rgba(#b9f6ca, 1.0); // green A100
+    border-bottom-color: $color-primary-lite;
+    color: $color-primary;
 
-    &:hover { background-color: rgba($fg-white, $fg-divider-alpha); }
+    &:hover { color: $color-primary; }
   }
-
-  .--fg-secondary { color: rgba(#fff, 0.7); }
-
-  .--fg-disabled,
-  .--fg-hint,
-  .--fg-icon { color: rgba(#fff, 0.5); }
-
-  .--fg-divider { color: $fg-white-divider }
 }
 
-%--fg-black { @include fg-black; }
+@mixin bg-primary {
+  @include fg-white;
+  background-color: $color-primary;
 
-%--fg-white { @include fg-white; }
+  a {
+    border-bottom-color: transparent;
+    color: $color-accent;
 
-%--bg-blue-gray-500 {
-  background-color: #607d8b;
-  @extend %--fg-white;
+    &:hover { color: $color-accent-lite; }
+  }
 }
 
-%--bg-blue-gray-700 {
-  background-color: #455A64;
-  @extend %--fg-white;
+@mixin bg-primary-lite {
+  @include fg-white;
+  background-color: $color-primary-lite;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-accent;
+
+    &:hover { color: $color-accent-dark; }
+  }
 }
 
-%--bg-gray-100 {
+@mixin bg-primary-dark {
+  @include fg-white;
+  background-color: $color-primary-dark;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-accent;
+
+    &:hover { color: $color-accent-lite; }
+  }
+}
+
+@mixin bg-accent {
+  @include fg-black;
+  background-color: $color-accent;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-primary;
+
+    &:hover { color: $color-primary-lite; }
+  }
+}
+
+@mixin bg-accent-dark {
+  @include fg-black;
+  background-color: $color-accent-dark;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-primary;
+
+    &:hover { color: $color-primary-lite; }
+  }
+}
+
+@mixin bg-pale {
+  @include fg-black;
   background-color: #F5F5F5;
-  @extend %--fg-black;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-primary;
+
+    &:hover { color: $color-primary; }
+  }
 }
 
-%--bg-gray-200 {
-  background-color: #EEEEEE;
-  @extend %--fg-black;
+@mixin bg-pale-dark {
+  @include fg-black;
+  background-color: #E0E0E0;
+
+  a {
+    border-bottom-color: transparent;
+    color: $color-primary;
+
+    &:hover { color: $color-primary; }
+  }
 }
 
-%--bg-gray-500 {
-  background-color: #9E9E9E;
-  @extend %--fg-black;
-}
-
-%--bg-gray-800 {
-  background-color: #424242;
-  @extend %--fg-white;
-}
-
-%--bg-gray-900 {
-  background-color: #212121;
-  @extend %--fg-white;
-}
-
-%--bg-indigo-500 {
-  background-color: #3F51B5;
-  @extend %--fg-white;
-}
-
-%--bg-indigo-900 {
-  background-color: #1A237E;
-  @extend %--fg-white;
-}
-
-%--bg-white {
-  background-color: #fff;
-  @extend %--fg-black;
-}
-
-.--fg-black { @extend %--fg-black; }
-.--fg-white { @extend %--fg-white; }
-
-.--bg-blue-gray-500 { @extend %--bg-blue-gray-500; }
-.--bg-blue-gray-700 { @extend %--bg-blue-gray-700; }
-
-.--bg-gray-500   { @extend %--bg-gray-500; }
-.--bg-gray-800   { @extend %--bg-gray-800; }
-.--bg-gray-900   { @extend %--bg-gray-900; }
-
-.--bg-indigo-500 { @extend %--bg-indigo-500; }
-.--bg-indigo-900 { @extend %--bg-indigo-900; }
-
-.--bg-white      { @extend %--bg-white; }
+.bg-white { @include bg-white; }
+.bg-primary { @include bg-primary; }
+.bg-primary-lite { @include bg-primary-lite; }
+.bg-primary-dark { @include bg-primary-dark; }

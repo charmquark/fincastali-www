@@ -1,4 +1,5 @@
 .masthead {
+  @include bg-primary;
   @include common--transition(left, top);
   @include position(fixed, -4rem null null 0);
   @include size(100% 4rem);

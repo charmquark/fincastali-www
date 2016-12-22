@@ -24,11 +24,11 @@ html.no-js lang="en"
                              'data-turbolinks-track': 'reload'
 
   body data-controller=controller_name data-action=action_name
-    .page.--bg-white
+    .page.bg-white
       = render 'blocks/masthead'
       = render 'blocks/sidebar'
 
-      .page__body.--bg-white
+      .page__body.bg-white
         = yield
         
         = render 'blocks/footer'

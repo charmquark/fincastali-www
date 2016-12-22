@@ -1,49 +1,27 @@
 .nav {
   &--footer {
     .nav__item {
-      clear: both;
-      margin: 0.5rem 0;
+      padding: 0.5rem;
       text-align: right;
-
-      &-desc {
-        float: right;
-        text-align: justify;
-        padding: 0;
-        width: 300px;
-      }
     }
   }
 
   &--sidebar {
-    @include position(fixed, 5rem 0 null 0);
+    @include position(fixed, 4rem 0 null 0);
     width: $sidebar--width;
 
-    .nav__item { margin: 0.5rem 1rem; }
+    .nav__item { padding: 0.5rem 1rem; }
   }
 
   &__item {
     display: block;
     font-size: 1.2rem;
     line-height: 2rem;
-
-    &-desc {
-      @include common--transition(height);
-      display: block;
-      height: 0;
-      overflow: hidden;
-      padding: 0 1rem;
-      width: 100%;
-    }
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .nav__item-desc { display: none; }
-}
-
 @media screen and (min-width: 1100px) {
-  .nav__item:hover + .nav__item-desc {
-    .nav--footer  & { height: 6rem; }
-    .nav--sidebar & { height: 7rem; }
+  .nav--sidebar .nav__item:hover {
+    background-color: $fg-black-divider;
   }
 }

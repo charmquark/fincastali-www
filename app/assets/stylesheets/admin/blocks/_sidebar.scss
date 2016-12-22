@@ -1,4 +1,5 @@
 .sidebar {
+  @include bg-admin-primary;
   @include flex(0 0 300px);
   min-height: 100vh;
 

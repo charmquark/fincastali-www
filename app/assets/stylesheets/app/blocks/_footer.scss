@@ -1,4 +1,5 @@
 .footer {
+  @include bg-primary;
   line-height: 1.5;
   padding: $common--margin $common--margin 10vh $common--margin;
 

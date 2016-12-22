@@ -1,9 +1,9 @@
 body[data-controller=pages] {
   &[data-action=home] {
     h1 {
-      background: rgba(#1A237E, 0.4);
-      border: 2px #E8EAF6 solid;
-      color: #E8EAF6;
+      background: rgba($color-primary, 0.5);
+      border: 2px rgba($white, $fg-black-alpha) solid;
+      color: rgba($white, $fg-black-alpha);
       display: inline-block;
       font-size: 90px;
       margin: 0;
@@ -16,19 +16,18 @@ body[data-controller=pages] {
 
     .header {
       @include align-items(center);
-      background-attachment: fixed;
+      background-color: $color-primary;
       background-image: image-url('pages/home/header.jpg');
       background-position: left center;
       background-repeat: no-repeat;
       background-size: cover;
       display: flex;
-      height: 100vh;
+      height: 50vh;
 
       &__content {
         @include flex(1 0 100%);
         @include fg-white;
         line-height: 1;
-        opacity: 0.8;
         text-align: center;
       }
 
@@ -42,8 +41,6 @@ body[data-controller=pages] {
         @media screen and (max-width: 470px) { font-size: 30px; }
       }
     }
-
-    .page__body { padding-top: 0; }
 
     .page--home__about-us {
       columns: 2;

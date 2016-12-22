@@ -7,21 +7,20 @@
   &__body {
     @include common--transition(left, padding-top);
     @include position(relative, null null null 0);
+    box-shadow: 0 0 1rem $fg-black;
     display: flex;
     flex: 1 1 85%;
     flex-direction: column;
     min-width: 300px;
     padding-top: 0;
     z-index: 10;
-  }
 
-  @include breakpoint(page, hidden_sidebar) {
-    &__body {
+    @include breakpoint(page, hidden_sidebar) {
       flex: 1 0 100%;
       left: -200px;
-      padding-top: 5rem;
-    }
+      padding-top: 3.999rem;
 
-    &--show-sidebar { .page__body { left: 0; } }
+      .page--show-sidebar & { left: 0; }
+    }
   }
 }
